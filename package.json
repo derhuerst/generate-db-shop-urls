@@ -16,6 +16,8 @@
 		"cookie": "^0.3.1",
 		"fetch-ponyfill": "^4.0.0",
 		"iconv-lite": "^0.4.17",
-		"moment-timezone": "^0.5.13"
+		"moment-timezone": "^0.5.13",
+		"slugg": "^1.2.0",
+		"trim-newlines": "^2.0.0"
 	}
 }

@@ -7,6 +7,8 @@ const cookie = require('cookie')
 const ct = require('content-type')
 const {decode} = require('iconv-lite')
 
+const parse = require('./lib/parse')
+
 const endpoint = 'https://reiseauskunft.bahn.de/bin/query.exe/dn'
 
 const link = (data) => {
@@ -69,6 +71,7 @@ const link = (data) => {
 		return res.buffer()
 		.then((raw) => raw.toString('utf8'))
 	})
+	.then(parse)
 }
 
 module.exports = link
