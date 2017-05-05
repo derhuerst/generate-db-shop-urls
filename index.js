@@ -71,7 +71,7 @@ const link = (data) => {
 		return res.buffer()
 		.then((raw) => raw.toString('utf8'))
 	})
-	.then(parse)
+	.then(parse(data))
 }
 
 module.exports = link
