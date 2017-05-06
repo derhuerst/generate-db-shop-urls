@@ -1,9 +1,20 @@
 'use strict'
 
 const moment = require('moment-timezone')
+const qs = require('querystring')
 
 const request = require('./lib/request')
 const parse = require('./lib/parse')
+
+const showDetails = ['C0-0', 'C0-1', 'C0-2']
+.map((id) => {
+	return 'CONNECTION$' + id + '!' + qs.stringify({
+		id,
+		HwaiConId: id,
+		HwaiDetailStatus: 'details'
+	}, '!')
+})
+.join(';')
 
 const convertDate = (d) => {
 	return moment.tz(+d, 'Europe/Berlin').locale('de')
@@ -33,7 +44,8 @@ const link = (query) => {
 		'tariffTravellerType.1': 'E',
 		'tariffTravellerReductionClass.1': '2',
 		tariffClass: '2',
-		rtMode: 'DB-HYBRID'
+		rtMode: 'DB-HYBRID',
+		HWAI: showDetails
 	}
 
 	return request('https://reiseauskunft.bahn.de/bin/query.exe/dn', req)
