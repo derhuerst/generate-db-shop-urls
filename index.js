@@ -11,7 +11,8 @@ const showDetails = ['C0-0', 'C0-1', 'C0-2']
 	return 'CONNECTION$' + id + '!' + qs.stringify({
 		id,
 		HwaiConId: id,
-		HwaiDetailStatus: 'details'
+		HwaiDetailStatus: 'details',
+		HwaiMoreDetailStatus: 'stInfo'
 	}, '!')
 })
 .join(';')
