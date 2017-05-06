@@ -9,15 +9,15 @@ const convertDate = (d) => {
 	return moment.tz(+d, 'Europe/Berlin').locale('de')
 }
 
-const link = (data) => {
-	const departure = moment.tz(+data.departure, 'Europe/Berlin').locale('de')
-	const _return = data.return ? convertDate(data.return) : null
+const link = (query) => {
+	const departure = convertDate(query.departure)
+	const _return = query.return ? convertDate(query.return) : null
 
 	const req = {
-		S: data.from.name,
-		REQ0JourneyStopsSID: 'L=00' + data.from.id,
-		Z: data.to.name,
-		REQ0JourneyStopsZID: 'L=00' + data.to.id,
+		S: query.from.name,
+		REQ0JourneyStopsSID: 'L=00' + query.from.id,
+		Z: query.to.name,
+		REQ0JourneyStopsZID: 'L=00' + query.to.id,
 		date: departure.format('dd, DD.MM.YY'),
 		time: departure.format('HH:mm'),
 		returnDate: _return ? _return.format('dd, DD.MM.YY') : '',
@@ -37,7 +37,7 @@ const link = (data) => {
 	}
 
 	return request('https://reiseauskunft.bahn.de/bin/query.exe/dn', req)
-	.then(parse(data))
+	.then(parse(query, false))
 }
 
 module.exports = link
