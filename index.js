@@ -1,10 +1,11 @@
 'use strict'
 
-const moment = require('moment-timezone')
 const qs = require('querystring')
+const moment = require('moment-timezone')
 
 const request = require('./lib/request')
 const parse = require('./lib/parse')
+const compareJourney = require('./lib/compare-journey')
 
 const showDetails = ['C0-0', 'C0-1', 'C0-2']
 .map((id) => {
@@ -51,6 +52,13 @@ const link = (query) => {
 
 	return request('https://reiseauskunft.bahn.de/bin/query.exe/dn', req)
 	.then(parse(query, false))
+	.then((forth) => {
+		forth = forth.find((f) => compareJourney(query, f.journey, false))
+		if (!forth) throw new Error('no matching result found')
+
+		// todo: return trip
+		return forth.nextStep
+	})
 }
 
 module.exports = link
