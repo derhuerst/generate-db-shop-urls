@@ -23,18 +23,22 @@ const convertDate = (d) => {
 }
 
 const link = (query) => {
-	const departure = convertDate(query.departure)
-	const _return = query.return ? convertDate(query.return) : null
+	// todo: rename return -> returning
+	const {outbound, return: returning} = query
+	if (!outbound) throw new Error('missing trip')
+
+	const oDeparture = convertDate(outbound.departure)
+	const rDeparture = returning ? convertDate(returning.departure) : null
 
 	const req = {
 		S: query.from.name,
 		REQ0JourneyStopsSID: 'L=00' + query.from.id,
 		Z: query.to.name,
 		REQ0JourneyStopsZID: 'L=00' + query.to.id,
-		date: departure.format('dd, DD.MM.YY'),
-		time: departure.format('HH:mm'),
-		returnDate: _return ? _return.format('dd, DD.MM.YY') : '',
-		returnTime: _return ? _return.format('HH:mm') : '',
+		date: oDeparture.format('dd, DD.MM.YY'),
+		time: oDeparture.format('HH:mm'),
+		returnDate: rDeparture ? rDeparture.format('dd, DD.MM.YY') : '',
+		returnTime: rDeparture ? rDeparture.format('HH:mm') : '',
 		existOptimizePrice: '1',
 		country: 'DEU',
 		start: '1',
@@ -52,12 +56,12 @@ const link = (query) => {
 
 	return request('https://reiseauskunft.bahn.de/bin/query.exe/dn', req)
 	.then(parse(query, false))
-	.then((forth) => {
-		forth = forth.find((f) => compareJourney(query, f.journey, false))
-		if (!forth) throw new Error('no matching result found')
+	.then((outbound) => {
+		outbound = outbound.find((f) => compareJourney(query, f.journey, false))
+		if (!outbound) throw new Error('no matching result found')
 
 		// todo: return trip
-		return forth.nextStep
+		return outbound.nextStep
 	})
 }
 
