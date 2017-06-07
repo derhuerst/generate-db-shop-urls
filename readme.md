@@ -35,17 +35,17 @@ Promise.all([
 ])
 .then(([outbound, returning]) => {
 	return generateTicketLink({
-		from: outbound[0].from,
-		to: outbound[0].to,
+		from: outbound[0].origin,
+		to: outbound[0].destination,
 		outbound: {
-			departure: outbound[0].start,
-			arrival: outbound[0].end,
+			departure: outbound[0].departure,
+			arrival: outbound[0].arrival,
 			legs: outbound[0].parts,
 			price: outbound[0].price
 		},
 		return: {
-			departure: returning[0].start,
-			arrival: returning[0].end,
+			departure: returning[0].departure,
+			arrival: returning[0].arrival,
 			legs: returning[0].parts,
 			price: returning[0].price
 		}

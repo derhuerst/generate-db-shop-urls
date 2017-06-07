@@ -9,7 +9,7 @@ const compareJourney = require('./lib/compare-journey')
 const {showDetails} = require('./lib/helpers')
 
 const convertDate = (d) => {
-	return moment.tz(+d, 'Europe/Berlin').locale('de')
+	return moment.tz(+new Date(d), 'Europe/Berlin').locale('de')
 }
 
 const link = (query) => {
