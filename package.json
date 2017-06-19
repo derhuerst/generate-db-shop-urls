@@ -1,9 +1,9 @@
 {
 	"name":         "generate-db-shop-urls",
 	"description":  "Magically generate Deutsche Bahn ticket URLs.",
-	"version":      "0.1.1",
+	"version":      "0.1.2",
 	"main":         "index.js",
-	"files":        ["index.js"],
+	"files":        ["index.js", "lib/*"],
 	"keywords":     ["db", "deutsche bahn", "bahn.de", "tickets", "shop", "link"],
 	"author":       "Jannis R <mail@jannisr.de>",
 	"homepage":     "https://github.com/derhuerst/generate-db-shop-urls",
