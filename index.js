@@ -21,6 +21,7 @@ const link = (query) => {
 	const rDeparture = returning ? convertDate(returning.departure) : null
 
 	const req = {
+		seqnr: '1',
 		S: query.from.name,
 		REQ0JourneyStopsSID: 'L=00' + query.from.id,
 		Z: query.to.name,

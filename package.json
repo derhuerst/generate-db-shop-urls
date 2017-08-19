@@ -26,7 +26,6 @@
 	"dependencies": {
 		"cheerio": "^1.0.0-rc.2",
 		"content-type": "^1.0.2",
-		"cookie": "^0.3.1",
 		"fetch-ponyfill": "^4.1.0",
 		"iconv-lite": "^0.4.17",
 		"is-roughly-equal": "^0.1.0",
