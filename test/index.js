@@ -8,8 +8,8 @@ const when = require('./when')
 
 test('works Berlin Hbf -> Heilbronn Hbf', (t) => {
 	Promise.all([
-		journeys('8096003', '8000157', {when, results: 1}),
-		journeys('8000157', '8096003', {when, results: 1})
+		journeys('8096003', '8000157', {when: when.outbound, results: 1}),
+		journeys('8000157', '8096003', {when: when.returning, results: 1})
 	])
 	.then(([outbound, returning]) => {
 		const query = {

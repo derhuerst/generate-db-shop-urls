@@ -6,8 +6,8 @@ const {journeys} = require('db-hafas')
 const generateLink = require('.')
 const when = require('./test/when') // Monday in a week, 10am
 
-const outbound = journeys('8096003', '8000157', {when, results: 1})
-const returning = journeys('8000157', '8096003', {when, results: 1})
+const outbound = journeys('8096003', '8000157', {when: when.outbound, results: 1})
+const returning = journeys('8000157', '8096003', {when: when.returning, results: 1})
 
 Promise.all([outbound, returning])
 .then(([outbound, returning]) => {
