@@ -39,7 +39,7 @@ const link = (query) => {
 		auskunft_travelers_number: '1',
 		'tariffTravellerType.1': 'E',
 		'tariffTravellerReductionClass.1': '2',
-		tariffClass: '2',
+		tariffClass: '2', // todo
 		rtMode: 'DB-HYBRID',
 		HWAI: showDetails(false)
 	}

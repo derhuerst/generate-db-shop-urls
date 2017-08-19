@@ -2,7 +2,7 @@
 
 **Magically generate Deutsche Bahn ticket URLs.**
 
-`generate-db-shop-urls` searches for a ticket link in the [Deutsche Bahn shop](https://www.bahn.de/) that matches the journey you passed as a query. It uses a lot of scraping, as there is know machine-readable interface to the ticket system. This makes `generate-db-shop-urls` rather brittle.
+`generate-db-shop-urls` searches for a ticket link in the [Deutsche Bahn shop](https://www.bahn.de/) that matches the journey you passed as a query. It uses a lot of scraping, as there is no machine-readable interface to the ticket system. This makes `generate-db-shop-urls` rather brittle.
 
 [![npm version](https://img.shields.io/npm/v/generate-db-shop-urls.svg)](https://www.npmjs.com/package/generate-db-shop-urls)
 [![build status](https://img.shields.io/travis/derhuerst/generate-db-shop-urls.svg)](https://travis-ci.org/derhuerst/generate-db-shop-urls)
