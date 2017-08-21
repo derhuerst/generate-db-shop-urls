@@ -45,15 +45,27 @@ const link = (query) => {
 		HWAI: showDetails(false)
 	}
 
-	return request('https://reiseauskunft.bahn.de/bin/query.exe/dn', req)
-	.then(parse(query, false))
-	.then((outbound) => {
-		outbound = outbound.find((f) => compareJourney(query, f.journey, false))
-		if (!outbound) throw new Error('no matching result found')
+	const onOutbound = ({data, cookies}) => {
+		let outbound = parse(query, false)(data)
 
-		// todo: return trip
-		return outbound.nextStep
-	})
+		outbound = outbound.find((f) => compareJourney(query, f.journey, false))
+		if (!outbound) throw new Error('no matching outbound journey found')
+
+		return request(outbound.nextStep, null, cookies)
+	}
+
+	const onReturning = ({data}) => {
+		let returning = parse(query, true)(data)
+
+		returning = returning.find((f) => compareJourney(query, f.journey, true))
+		if (!returning) throw new Error('no matching returning journey found')
+
+		return returning.nextStep
+	}
+
+	return request('https://reiseauskunft.bahn.de/bin/query.exe/dn', req)
+	.then(onOutbound)
+	.then(onReturning)
 }
 
 module.exports = link

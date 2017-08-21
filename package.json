@@ -35,9 +35,10 @@
 		"trim-newlines": "^2.0.0"
 	},
 	"peerDependencies": {
-		"db-hafas": "derhuerst/db-hafas#fptf"
+		"db-hafas": "^1.1.0"
 	},
 	"devDependencies": {
+		"db-hafas": "^1.1.0",
 		"floordate": "^3.0.0",
 		"tap-min": "^1.2.1",
 		"tape": "^4.8.0"
