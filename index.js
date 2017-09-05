@@ -13,7 +13,7 @@ const convertDate = (d) => {
 }
 
 const link = (query) => {
-	const {outbound, return: returning} = query
+	const {outbound, returning} = query
 	if (!outbound) throw new Error('missing trip')
 
 	const oDeparture = convertDate(outbound.departure)
