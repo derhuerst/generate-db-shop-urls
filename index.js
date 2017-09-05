@@ -13,7 +13,6 @@ const convertDate = (d) => {
 }
 
 const link = (query) => {
-	// todo: rename return -> returning
 	const {outbound, return: returning} = query
 	if (!outbound) throw new Error('missing trip')
 
