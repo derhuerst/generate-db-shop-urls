@@ -21,7 +21,7 @@ test('works Berlin Hbf -> Heilbronn Hbf', (t) => {
 				legs: outbound[0].parts,
 				price: outbound[0].price
 			},
-			return: {
+			returning: {
 				departure: returning[0].departure,
 				arrival: returning[0].arrival,
 				legs: returning[0].parts,
