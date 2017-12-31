@@ -1,6 +1,5 @@
 'use strict'
 
-const qs = require('querystring')
 const {DateTime} = require('luxon')
 
 const request = require('./lib/request')
