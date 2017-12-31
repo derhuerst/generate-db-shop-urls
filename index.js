@@ -1,23 +1,29 @@
 'use strict'
 
 const qs = require('querystring')
-const moment = require('moment-timezone')
+const {DateTime} = require('luxon')
 
 const request = require('./lib/request')
 const parse = require('./lib/parse')
 const compareJourney = require('./lib/compare-journey')
 const {showDetails} = require('./lib/helpers')
 
-const convertDate = (d) => {
-	return moment.tz(+new Date(d), 'Europe/Berlin').locale('de')
+const formatDate = (d) => {
+	return DateTime.fromISO(d, {
+		zone: 'Europe/Berlin',
+		locale: 'de-DE'
+	}).toFormat('ccc, dd.MM.yy')
+}
+const formatTime = (d) => {
+	return DateTime.fromISO(d, {
+		zone: 'Europe/Berlin',
+		locale: 'de-DE'
+	}).toFormat('HH:mm')
 }
 
 const link = (query) => {
 	const {outbound, returning} = query
 	if (!outbound) throw new Error('missing trip')
-
-	const oDeparture = convertDate(outbound.departure)
-	const rDeparture = returning ? convertDate(returning.departure) : null
 
 	const req = {
 		seqnr: '1',
@@ -25,10 +31,10 @@ const link = (query) => {
 		REQ0JourneyStopsSID: 'L=00' + query.from.id,
 		Z: query.to.name,
 		REQ0JourneyStopsZID: 'L=00' + query.to.id,
-		date: oDeparture.format('dd, DD.MM.YY'),
-		time: oDeparture.format('HH:mm'),
-		returnDate: rDeparture ? rDeparture.format('dd, DD.MM.YY') : '',
-		returnTime: rDeparture ? rDeparture.format('HH:mm') : '',
+		date: formatDate(outbound.departure),
+		time: formatTime(outbound.departure),
+		returnDate: returning.departure ? formatDate(returning.departure) : '',
+		returnTime: returning.departure ? formatTime(returning.departure) : '',
 		existOptimizePrice: '1',
 		country: 'DEU',
 		start: '1',

@@ -29,7 +29,7 @@
 		"fetch-ponyfill": "^4.1.0",
 		"iconv-lite": "^0.4.17",
 		"is-roughly-equal": "^0.1.0",
-		"moment-timezone": "^0.5.13",
+		"luxon": "^0.2.11",
 		"pinkie-promise": "^2.0.1",
 		"slugg": "^1.2.0",
 		"trim-newlines": "^2.0.0"
@@ -39,7 +39,6 @@
 	},
 	"devDependencies": {
 		"db-hafas": "^1.1.0",
-		"luxon": "^0.2.11",
 		"tap-min": "^1.2.1",
 		"tape": "^4.8.0"
 	},
