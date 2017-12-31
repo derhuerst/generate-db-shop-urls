@@ -11,7 +11,7 @@ const link = require('..')
 const when = require('./when')
 
 const berlin = '008011160'
-const hamburg = '008096009'
+const hamburg = '008002549'
 
 const userAgent = 'https://github.com/derhuerst/generate-db-shop-urls'
 const fetchHTML = (url) => {

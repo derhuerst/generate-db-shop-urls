@@ -1,16 +1,18 @@
 'use strict'
 
-const floor = require('floordate')
+const {DateTime} = require('luxon')
 
-const minute = 60 * 1000
-const hour = 60 * minute
-const day = 24 * hour
+const createWhen = (days = 0, hours = 0) => {
+	return DateTime.fromMillis(Date.now(), {
+		zone: 'Europe/Berlin',
+		locale: 'de-DE',
+	})
+	.startOf('week')
+	.plus({weeks: 1, days, hours})
+	.toJSDate()
+}
 
-// note that the JS week beings with Sunday
-
-// Monday of next week, 10am
-const outbound = new Date(+floor(new Date(), 'week') + 8 * day + 10 * hour)
-// Tuesday of next week, 8am
-const returning = new Date(+floor(new Date(), 'week') + 9 * day + 8 * hour)
+const outbound = createWhen(0, 10) // Monday of next week, 10am
+const returning = createWhen(1, 8) // Tuesday of next week, 8am
 
 module.exports = {outbound, returning}
