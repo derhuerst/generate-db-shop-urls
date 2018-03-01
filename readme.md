@@ -9,6 +9,7 @@
 [![build status](https://img.shields.io/travis/derhuerst/generate-db-shop-urls.svg)](https://travis-ci.org/derhuerst/generate-db-shop-urls)
 ![ISC-licensed](https://img.shields.io/github/license/derhuerst/generate-db-shop-urls.svg)
 [![chat on gitter](https://badges.gitter.im/derhuerst.svg)](https://gitter.im/derhuerst)
+[![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)
 
 
 ## Installing
@@ -20,16 +21,18 @@ npm install generate-db-shop-urls
 
 ## Usage
 
+`generate-db-shop-urls` accepts a form very similar to the [*Friendly Public Transport Format* `1.0.1`](https://github.com/public-transport/friendly-public-transport-format/blob/1.0.1/spec/readme.md) as input.
+
 ```js
-const {routes} = require('db-hafas')
+const {journeys} = require('db-hafas')
 const generateTicketLink = require('generate-db-shop-urls')
 
 Promise.all([
-	routes(8096003, 8000157, {
+	journeys('8096003', '8000157', {
 		when: new Date('2017-05-18T05:00+0200'),
 		results: 1
 	}),
-	routes(8000157, 8096003, {
+	journeys('8000157', '8096003', {
 		when: new Date('2017-05-19T12:00+0200'),
 		results: 1
 	})
@@ -41,13 +44,13 @@ Promise.all([
 		outbound: {
 			departure: outbound[0].departure,
 			arrival: outbound[0].arrival,
-			legs: outbound[0].parts,
+			legs: outbound[0].legs,
 			price: outbound[0].price
 		},
 		return: {
 			departure: returning[0].departure,
 			arrival: returning[0].arrival,
-			legs: returning[0].parts,
+			legs: returning[0].legs,
 			price: returning[0].price
 		}
 	})

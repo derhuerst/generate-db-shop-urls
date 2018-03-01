@@ -51,13 +51,13 @@ test('works Berlin Hbf -> Hamburg Hbf and back', (t) => {
 			outbound: {
 				departure: outbound[0].departure,
 				arrival: outbound[0].arrival,
-				legs: outbound[0].parts,
+				legs: outbound[0].legs,
 				price: outbound[0].price
 			},
 			returning: {
 				departure: returning[0].departure,
 				arrival: returning[0].arrival,
-				legs: returning[0].parts,
+				legs: returning[0].legs,
 				price: returning[0].price
 			}
 		}
