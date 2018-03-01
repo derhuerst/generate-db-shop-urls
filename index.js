@@ -26,10 +26,14 @@ const link = (query) => {
 
 	const req = {
 		seqnr: '1',
-		S: query.from.name,
-		REQ0JourneyStopsSID: 'L=00' + query.from.id,
-		Z: query.to.name,
-		REQ0JourneyStopsZID: 'L=00' + query.to.id,
+		// WAT. Their API fails if `S` is missing, even though the ID in
+		// `REQ0JourneyStopsSID` overrides whatever is in `S`. Same for
+		// `Z` and `REQ0JourneyStopsZID`.
+		S: 'foo',
+		// todo: support POIs and addresses
+		REQ0JourneyStopsSID: 'A=1@L=00' + (outbound.origin.id || outbound.origin),
+		Z: 'bar',
+		REQ0JourneyStopsZID: 'A=1@L=00' + (outbound.destination.id || outbound.destination),
 		date: formatDate(outbound.departure),
 		time: formatTime(outbound.departure),
 		returnDate: returning ? formatDate(returning.departure) : '',
