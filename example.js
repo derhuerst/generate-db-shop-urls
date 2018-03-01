@@ -11,26 +11,8 @@ const outbound = journeys('008011160', '008096009', {when: when.outbound, result
 const returning = journeys('008096009', '008011160', {when: when.returning, results: 1})
 
 Promise.all([outbound, returning])
-.then(([outbound, returning]) => {
-	const query = {
-		from: outbound[0].origin,
-		to: outbound[0].destination,
-		outbound: {
-			departure: outbound[0].departure,
-			arrival: outbound[0].arrival,
-			legs: outbound[0].legs,
-			price: outbound[0].price
-		},
-		returning: {
-			departure: returning[0].departure,
-			arrival: returning[0].arrival,
-			legs: returning[0].legs,
-			price: returning[0].price
-		}
-	}
+.then(([outbound, returning]) => generateLink(outbound[0], returning[0]))
 
-	return generateLink(query)
-})
 .then((data) => {
 	console.log(util.inspect(data, {depth: null}))
 })

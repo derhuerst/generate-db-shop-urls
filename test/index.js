@@ -25,13 +25,7 @@ const isBookingPage = (url) => {
 
 test('works Berlin Hbf -> Hamburg Hbf', (t) => {
 	journeys(berlin, hamburg, {when: when.outbound, results: 1})
-	.then(([outbound]) => {
-		return link({
-			from: outbound.origin,
-			to: outbound.destination,
-			outbound
-		})
-	})
+	.then(([outbound]) => link(outbound))
 	.then(isBookingPage)
 	.then((isBookingPage) => {
 		t.ok(isBookingPage, 'link is not a booking page')
@@ -45,26 +39,7 @@ test('works Berlin Hbf -> Hamburg Hbf and back', (t) => {
 		journeys(berlin, hamburg, {when: when.outbound, results: 1}),
 		journeys(hamburg, berlin, {when: when.returning, results: 1})
 	])
-	.then(([outbound, returning]) => {
-		const query = {
-			from: outbound[0].origin,
-			to: outbound[0].destination,
-			outbound: {
-				departure: outbound[0].departure,
-				arrival: outbound[0].arrival,
-				legs: outbound[0].legs,
-				price: outbound[0].price
-			},
-			returning: {
-				departure: returning[0].departure,
-				arrival: returning[0].arrival,
-				legs: returning[0].legs,
-				price: returning[0].price
-			}
-		}
-
-		return link(query)
-	})
+	.then(([outbound, returning]) => link(outbound[0], returning[0]))
 	.then(isBookingPage)
 	.then((isBookingPage) => {
 		t.ok(isBookingPage, 'link is not a booking page')

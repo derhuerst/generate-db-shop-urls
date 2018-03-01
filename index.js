@@ -20,8 +20,7 @@ const formatTime = (d) => {
 	}).toFormat('HH:mm')
 }
 
-const link = (query) => {
-	const {outbound, returning} = query
+const link = (outbound, returning) => {
 	if (!outbound) throw new Error('missing trip')
 
 	const req = {
