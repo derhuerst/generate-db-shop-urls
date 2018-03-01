@@ -1,6 +1,8 @@
 'use strict'
 
-const {fetch} = require('fetch-ponyfill')({Promise: require('pinkie-promise')})
+const {fetch} = require('fetch-ponyfill')({
+	Promise: require('pinkie-promise')
+})
 const ct = require('content-type')
 const {decode} = require('iconv-lite')
 const test = require('tape')
