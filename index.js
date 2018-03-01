@@ -55,8 +55,8 @@ const link = (query) => {
 		outbound = outbound.find((f) => compareJourney(query, f.journey, false))
 		if (!outbound) throw new Error('no matching outbound journey found')
 
-		if (!returning) return journey.nextStep
-		return request(journey.nextStep, null, cookies)
+		if (!returning) return outbound.nextStep
+		return request(outbound.nextStep, null, cookies)
 		.then(onReturning)
 	}
 
