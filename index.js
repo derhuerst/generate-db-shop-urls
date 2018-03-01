@@ -55,7 +55,9 @@ const link = (query) => {
 		outbound = outbound.find((f) => compareJourney(query, f.journey, false))
 		if (!outbound) throw new Error('no matching outbound journey found')
 
-		return request(outbound.nextStep, null, cookies)
+		if (!returning) return journey.nextStep
+		return request(journey.nextStep, null, cookies)
+		.then(onReturning)
 	}
 
 	const onReturning = ({data}) => {
@@ -69,7 +71,6 @@ const link = (query) => {
 
 	return request('https://reiseauskunft.bahn.de/bin/query.exe/dn', req)
 	.then(onOutbound)
-	.then(onReturning)
 }
 
 module.exports = link
