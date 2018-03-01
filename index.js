@@ -54,23 +54,25 @@ const link = (query) => {
 	}
 
 	const onOutbound = ({data, cookies}) => {
-		let outbound = parse(query, false)(data)
+		const results = parse(outbound, returning, false)(data)
+		const result = results.find((f) => {
+			return compareJourney(outbound, returning, f.journey, false)
+		})
+		if (!result) throw new Error('no matching outbound journey found')
 
-		outbound = outbound.find((f) => compareJourney(query, f.journey, false))
-		if (!outbound) throw new Error('no matching outbound journey found')
-
-		if (!returning) return outbound.nextStep
-		return request(outbound.nextStep, null, cookies)
+		if (!returning) return result.nextStep
+		return request(result.nextStep, null, cookies)
 		.then(onReturning)
 	}
 
 	const onReturning = ({data}) => {
-		let returning = parse(query, true)(data)
+		const results = parse(outbound, returning, true)(data)
+		const result = results.find((f) => {
+			return compareJourney(outbound, returning, f.journey, true)
+		})
+		if (!result) throw new Error('no matching returning journey found')
 
-		returning = returning.find((f) => compareJourney(query, f.journey, true))
-		if (!returning) throw new Error('no matching returning journey found')
-
-		return returning.nextStep
+		return result.nextStep
 	}
 
 	return request('https://reiseauskunft.bahn.de/bin/query.exe/dn', req)
