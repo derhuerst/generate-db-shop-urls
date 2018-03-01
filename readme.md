@@ -6,7 +6,7 @@
 - The generated links only work if you don't have any `bahn.de` cookies set. Try private browsing.
 
 [![npm version](https://img.shields.io/npm/v/generate-db-shop-urls.svg)](https://www.npmjs.com/package/generate-db-shop-urls)
-[![build status](https://img.shields.io/travis/derhuerst/generate-db-shop-urls.svg)](https://travis-ci.org/derhuerst/generate-db-shop-urls)
+[![build status](https://img.shields.io/travis/derhuerst/generate-db-shop-urls.svg?branch=master)](https://travis-ci.org/derhuerst/generate-db-shop-urls)
 ![ISC-licensed](https://img.shields.io/github/license/derhuerst/generate-db-shop-urls.svg)
 [![chat on gitter](https://badges.gitter.im/derhuerst.svg)](https://gitter.im/derhuerst)
 [![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)

@@ -11,6 +11,35 @@ const when = require('./when')
 const berlin = '008011160'
 const hamburg = '008002549'
 
+const isBookingPage = (url) => {
+	return request(link, null, null)
+	.then((html) => {
+		const $ = cheerio.load(html)
+		const nextButtons = $('.booking a[href]').get()
+		// this is a really really brittle way to tell if the link generation
+		// worked, hence if we're on the right page.
+		// todo: find a more robust way, compare prices
+		return nextButtons.length > 0
+	})
+}
+
+test('works Berlin Hbf -> Hamburg Hbf', (t) => {
+	journeys(berlin, hamburg, {when: when.outbound, results: 1})
+	.then(([outbound]) => {
+		return link({
+			from: outbound.origin,
+			to: outbound.destination,
+			outbound
+		})
+	})
+	.then(isBookingPage)
+	.then((isBookingPage) => {
+		t.ok(isBookingPage, 'link is not a booking page')
+		t.end()
+	})
+	.catch(t.ifError)
+})
+
 test('works Berlin Hbf -> Hamburg Hbf and back', (t) => {
 	Promise.all([
 		journeys(berlin, hamburg, {when: when.outbound, results: 1}),
@@ -36,19 +65,10 @@ test('works Berlin Hbf -> Hamburg Hbf and back', (t) => {
 
 		return link(query)
 	})
-	.then((link) => {
-		return request(link, null, null)
-		.then((html) => {
-			const $ = cheerio.load(html)
-
-			const nextButtons = $('.booking a[href]').get()
-			// this is a really really brittle way to tell if the link generation
-			// worked, hence if we're on the right page.
-			// todo: find a more robust way, compare prices
-			t.ok(nextButtons.length > 0)
-
-			t.end()
-		})
+	.then(isBookingPage)
+	.then((isBookingPage) => {
+		t.ok(isBookingPage, 'link is not a booking page')
+		t.end()
 	})
 	.catch(t.ifError)
 })
