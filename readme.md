@@ -37,23 +37,8 @@ Promise.all([
 		results: 1
 	})
 ])
-.then(([outbound, returning]) => {
-	return generateTicketLink({
-		from: outbound[0].origin,
-		to: outbound[0].destination,
-		outbound: {
-			departure: outbound[0].departure,
-			arrival: outbound[0].arrival,
-			legs: outbound[0].legs,
-			price: outbound[0].price
-		},
-		return: {
-			departure: returning[0].departure,
-			arrival: returning[0].arrival,
-			legs: returning[0].legs,
-			price: returning[0].price
-		}
-	})
+.then(([outboundJourneys, returningJourneys]) => {
+	return generateTicketLink(outboundJourneys[0], returningJourneys[0])
 })
 .then(console.log, console.error)
 ```
