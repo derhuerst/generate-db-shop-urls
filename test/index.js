@@ -12,14 +12,15 @@ const berlin = '008011160'
 const hamburg = '008002549'
 
 const isBookingPage = (url) => {
-	return request(link, null, null)
-	.then((html) => {
-		const $ = cheerio.load(html)
-		const nextButtons = $('.booking a[href]').get()
+	return request(url, null, null)
+	.then(({data}) => {
+		const $ = cheerio.load(data)
+		const nextButton = $('.booking a[href]').get(0)
+		const availContinueButton = $('#availContinueButton').get(0)
 		// this is a really really brittle way to tell if the link generation
 		// worked, hence if we're on the right page.
 		// todo: find a more robust way, compare prices
-		return nextButtons.length > 0
+		return nextButton || availContinueButton
 	})
 }
 
