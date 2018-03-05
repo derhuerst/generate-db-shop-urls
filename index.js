@@ -8,6 +8,8 @@ const compareJourney = require('./lib/compare-journey')
 const {showDetails} = require('./lib/helpers')
 
 const isProduction = process.env.NODE_ENV !== 'production'
+const timezone = 'Europe/Berlin'
+const locale = 'de-DE'
 
 const isObj = o => o !== null && 'object' === typeof o && !Array.isArray(o)
 
@@ -34,16 +36,14 @@ const validateJourney = (j, name) => {
 }
 
 const formatDate = (d) => {
-	return DateTime.fromISO(d, {
-		zone: 'Europe/Berlin',
-		locale: 'de-DE'
-	}).toFormat('ccc, dd.MM.yy')
+	return DateTime
+	.fromISO(d, {zone: timezone, locale})
+	.toFormat('ccc, dd.MM.yy')
 }
 const formatTime = (d) => {
-	return DateTime.fromISO(d, {
-		zone: 'Europe/Berlin',
-		locale: 'de-DE'
-	}).toFormat('HH:mm')
+	return DateTime
+	.fromISO(d, {zone: timezone, locale})
+	.toFormat('HH:mm')
 }
 
 const link = (outbound, returning) => {

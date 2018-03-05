@@ -26,12 +26,14 @@ npm install generate-db-shop-urls
 const {journeys} = require('db-hafas')
 const generateTicketLink = require('generate-db-shop-urls')
 
+const berlin = '8096003'
+const hamburg = '8000157'
 Promise.all([
-	journeys('8096003', '8000157', {
+	journeys(berlin, hamburg, {
 		when: new Date('2017-05-18T05:00+0200'),
 		results: 1
 	}),
-	journeys('8000157', '8096003', {
+	journeys(hamburg, berlin, {
 		when: new Date('2017-05-19T12:00+0200'),
 		results: 1
 	})
