@@ -1,6 +1,6 @@
 # generate-db-shop-urls
 
-**Magically generate Deutsche Bahn ticket URLs.** Searches for a ticket link in the [Deutsche Bahn shop](https://www.bahn.de/) that matches the journey you passed as a query. Caveats:
+**Magically generate Deutsche Bahn ticket URLs.** Searches for a ticket link in the [Deutsche Bahn shop](https://www.bahn.de/) that matches the [`journey`](https://github.com/public-transport/friendly-public-transport-format/blob/1.0.2/spec/readme.md#journey) you passed as a query. Caveats:
 
 - Uses a lot of scraping, as there is no (publicly accessible) machine-readable interface to the ticket system. This makes `generate-db-shop-urls` brittle.
 
