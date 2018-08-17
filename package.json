@@ -40,7 +40,7 @@
 		"hafas-client": "^2.3.3"
 	},
 	"devDependencies": {
-		"db-hafas": "^2.1.0",
+		"db-hafas": "^3.0.0",
 		"tape": "^4.8.0"
 	},
 	"scripts": {
