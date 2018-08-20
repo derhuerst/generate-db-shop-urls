@@ -1,7 +1,7 @@
 'use strict'
 
 const test = require('tape')
-const {journeys} = require('db-hafas')
+const createHafas = require('db-hafas')
 const cheerio = require('cheerio')
 
 const request = require('../lib/request')
@@ -10,6 +10,8 @@ const when = require('./when')
 
 const berlin = '008011160'
 const hamburg = '008002549'
+
+const hafas = createHafas('generate-db-shop-urls test')
 
 const isBookingPage = (url) => {
 	return request(url, null, null)
@@ -25,7 +27,9 @@ const isBookingPage = (url) => {
 }
 
 test('works Berlin Hbf -> Hamburg Hbf', (t) => {
-	journeys(berlin, hamburg, {when: when.outbound, results: 1})
+	hafas.journeys(berlin, hamburg, {
+		departure: when.outbound, results: 1
+	})
 	.then(([outbound]) => link(outbound))
 	.then(isBookingPage)
 	.then((isBookingPage) => {
@@ -37,8 +41,12 @@ test('works Berlin Hbf -> Hamburg Hbf', (t) => {
 
 test('works Berlin Hbf -> Hamburg Hbf and back', (t) => {
 	Promise.all([
-		journeys(berlin, hamburg, {when: when.outbound, results: 1}),
-		journeys(hamburg, berlin, {when: when.returning, results: 1})
+		hafas.journeys(berlin, hamburg, {
+			departure: when.outbound, results: 1
+		}),
+		hafas.journeys(hamburg, berlin, {
+			departure: when.returning, results: 1
+		})
 	])
 	.then(([outbound, returning]) => link(outbound[0], returning[0]))
 	.then(isBookingPage)

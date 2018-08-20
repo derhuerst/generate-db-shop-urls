@@ -20,21 +20,23 @@ npm install generate-db-shop-urls
 
 ## Usage
 
-`generate-db-shop-urls` accepts a form very similar to the [*Friendly Public Transport Format* `1.0.1`](https://github.com/public-transport/friendly-public-transport-format/blob/1.0.1/spec/readme.md) as input.
+`generate-db-shop-urls` accepts a form very similar to the [*Friendly Public Transport Format* `1.1.1`](https://github.com/public-transport/friendly-public-transport-format/blob/1.1.1/spec/readme.md) as input.
 
 ```js
-const {journeys} = require('db-hafas')
+const createHafas = require('db-hafas')
 const generateTicketLink = require('generate-db-shop-urls')
 
 const berlin = '8096003'
 const hamburg = '8000157'
+const hafas = createHafas('my-awesome-program')
+
 Promise.all([
-	journeys(berlin, hamburg, {
-		when: new Date('2017-05-18T05:00+0200'),
+	hafas.journeys(berlin, hamburg, {
+		departure: new Date('2017-05-18T05:00+0200'),
 		results: 1
 	}),
-	journeys(hamburg, berlin, {
-		when: new Date('2017-05-19T12:00+0200'),
+	hafas.journeys(hamburg, berlin, {
+		departure: new Date('2017-05-19T12:00+0200'),
 		results: 1
 	})
 ])
