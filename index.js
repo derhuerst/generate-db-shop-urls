@@ -17,21 +17,19 @@ const isISO8601String = str => 'string' === typeof str && !Number.isNaN(+new Dat
 
 const validateJourney = (j, name) => {
 	if (!isObj(j)) throw new Error(name + ' must be an object.')
-	if (
-		j.type !== 'journey' ||
-		!j.origin ||
-		!isISO8601String(j.departure) ||
-		!j.destination ||
-		!isISO8601String(j.arrival) ||
-		!Array.isArray(j.legs) || j.legs.length === 0
-	) {
-		throw new Error(name + ' must be a valid FPTF 1.0.1 journey.')
+	const invalid = new Error(name + ' must be a valid FPTF 1.1.1 journey.')
+	if (j.type !== 'journey' || !Array.isArray(j.legs) || !j.legs.length) throw invalid
+	const firstLeg = j.legs[0]
+	if (!firstLeg.origin || !isISO8601String(firstLeg.departure)) throw invalid
+	const lastLeg = j.legs[j.legs.length - 1]
+	if (!lastLeg.destination || !isISO8601String(lastLeg.arrival)) throw invalid
+	const orig = firstLeg.origin
+	if (isObj(orig) && orig.type !== 'station' && orig.type !== 'stop') {
+		throw new Error(name + '.origin must be a station/stop.')
 	}
-	if (isObj(j.origin) && j.origin.type !== 'station') {
-		throw new Error(name + '.origin must be a station.')
-	}
-	if (isObj(j.destination) && j.destination.type !== 'station') {
-		throw new Error(name + '.destination must be a station.')
+	const dest = lastLeg.destination
+	if (isObj(dest) && dest.type !== 'station' && dest.type !== 'stop') {
+		throw new Error(name + '.destination must be a station/stop.')
 	}
 }
 
@@ -47,19 +45,23 @@ const formatTime = (d) => {
 }
 
 const link = (outbound, returning) => {
-	if (isProduction) {
-		validateJourney(outbound, 'outbound')
-		var originId = outbound.origin.id || outbound.origin
-		var destinationId = outbound.destination.id || outbound.destination
-		if (returning) {
-			validateJourney(returning, 'returning')
-			const returningOriginId = returning.origin.id || returning.origin
-			if (destinationId !== returningOriginId) {
-				throw new Error('origin.destination !== returning.orgin.')
-			}
-			if (new Date(outbound.arrival) > new Date(returning.departure)) {
-				throw new Error('origin.destination !== returning.orgin.')
-			}
+	validateJourney(outbound, 'outbound')
+
+	const orig = outbound.legs[0].origin
+	const originId = orig.station && orig.station.id || orig.id || orig
+	const dest = outbound.legs[outbound.legs.length - 1].destination
+	const destinationId = dest.station && dest.station.id || dest.id || dest
+
+	if (returning) {
+		validateJourney(returning, 'returning')
+
+		const rOrig = returning.legs[0].origin
+		const rOrigId = rOrig.station && rOrig.station.id || rOrig.id || rOrig
+		if (destinationId !== rOrigId) {
+			throw new Error('origin.destination !== returning.orgin.')
+		}
+		if (new Date(outbound.arrival) > new Date(returning.departure)) {
+			throw new Error('origin.destination !== returning.orgin.')
 		}
 	}
 
@@ -73,10 +75,10 @@ const link = (outbound, returning) => {
 		REQ0JourneyStopsSID: 'A=1@L=00' + originId,
 		Z: 'bar',
 		REQ0JourneyStopsZID: 'A=1@L=00' + destinationId,
-		date: formatDate(outbound.departure),
-		time: formatTime(outbound.departure),
-		returnDate: returning ? formatDate(returning.departure) : '',
-		returnTime: returning ? formatTime(returning.departure) : '',
+		date: formatDate(outbound.legs[0].departure),
+		time: formatTime(outbound.legs[0].departure),
+		returnDate: returning ? formatDate(returning.legs[0].departure) : '',
+		returnTime: returning ? formatTime(returning.legs[0].departure) : '',
 		existOptimizePrice: '1',
 		country: 'DEU',
 		start: '1',
