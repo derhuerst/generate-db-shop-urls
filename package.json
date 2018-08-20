@@ -26,6 +26,7 @@
 	"dependencies": {
 		"cheerio": "^1.0.0-rc.2",
 		"content-type": "^1.0.2",
+		"debug": "^3.1.0",
 		"fetch-ponyfill": "^6.0.0",
 		"iconv-lite": "^0.4.17",
 		"is-roughly-equal": "^0.1.0",

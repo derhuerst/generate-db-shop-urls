@@ -1,6 +1,7 @@
 'use strict'
 
 const {DateTime} = require('luxon')
+const debug = require('debug')('generate-db-shop-urls')
 
 const request = require('./lib/request')
 const parse = require('./lib/parse')
@@ -93,6 +94,7 @@ const link = (outbound, returning) => {
 		rtMode: 'DB-HYBRID',
 		HWAI: showDetails(false)
 	}
+	debug('request', req)
 
 	const onOutbound = ({data, cookies}) => {
 		const results = parse(outbound, returning, false)(data)
@@ -101,6 +103,7 @@ const link = (outbound, returning) => {
 		})
 		if (!result) throw new Error('no matching outbound journey found')
 
+		debug('outbound next step', result.nextStep)
 		if (!returning) return result.nextStep
 		return request(result.nextStep, null, cookies)
 		.then(onReturning)
@@ -113,6 +116,7 @@ const link = (outbound, returning) => {
 		})
 		if (!result) throw new Error('no matching returning journey found')
 
+		debug('returning next step', result.nextStep)
 		return result.nextStep
 	}
 
