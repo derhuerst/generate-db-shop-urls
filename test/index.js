@@ -48,7 +48,7 @@ test('works Berlin Hbf -> Hamburg Hbf and back', (t) => {
 			departure: when.returning, results: 1
 		})
 	])
-	.then(([outbound, returning]) => link(outbound[0], returning[0]))
+	.then(([outbound, returning]) => link(outbound[0], {returning: returning[0]}))
 	.then(isBookingPage)
 	.then((isBookingPage) => {
 		t.ok(isBookingPage, 'link is not a booking page')

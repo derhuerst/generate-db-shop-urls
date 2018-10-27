@@ -30,6 +30,13 @@ const berlin = '8096003'
 const hamburg = '8000157'
 const hafas = createHafas('my-awesome-program')
 
+// default options
+const options = {
+	bahncard: '0', // bahncard id (0 = no bahncard, see https://gist.github.com/juliuste/202bb04f450a79f8fa12a2ec3abcd72d)
+	class: '2', // '1' or '2'
+	returning: null // no returning journeys
+}
+
 Promise.all([
 	hafas.journeys(berlin, hamburg, {
 		departure: new Date('2017-05-18T05:00+0200'),
@@ -41,7 +48,8 @@ Promise.all([
 	})
 ])
 .then(([outboundJourneys, returningJourneys]) => {
-	return generateTicketLink(outboundJourneys[0], returningJourneys[0])
+	options.returning = returningJourneys[0]
+	return generateTicketLink(outboundJourneys[0], options)
 })
 .then(console.log, console.error)
 ```

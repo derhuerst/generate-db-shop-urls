@@ -9,6 +9,12 @@ const when = require('./test/when') // Monday in a week, 10am
 const berlin = '8011160'
 const hamburg = '8096009'
 
+const options = {
+	bahncard: '0', // bahncard id (0 = no bahncard, see https://gist.github.com/juliuste/202bb04f450a79f8fa12a2ec3abcd72d)
+	class: '2', // '1' or '2'
+	returning: null // no returning journeys
+}
+
 // Berlin -> Hamburg, Hamburg -> Berlin
 const hafas = createHafas('generate-db-shop-urls example')
 const outbound = hafas.journeys(berlin, hamburg, {
@@ -19,7 +25,10 @@ const returning = hafas.journeys(hamburg, berlin, {
 })
 
 Promise.all([outbound, returning])
-.then(([outbound, returning]) => generateLink(outbound[0], returning[0]))
+.then(([outbound, returning]) => {
+	options.returning = returning[0]
+	return generateLink(outbound[0], options)
+})
 
 .then((data) => {
 	console.log(util.inspect(data, {depth: null}))

@@ -1,6 +1,7 @@
 'use strict'
 
 const {DateTime} = require('luxon')
+const merge = require('lodash.merge')
 const debug = require('debug')('generate-db-shop-urls')
 
 const request = require('./lib/request')
@@ -45,7 +46,15 @@ const formatTime = (d) => {
 	.toFormat('HH:mm')
 }
 
-const link = (outbound, returning) => {
+const defaults = {
+	class: '2', // '1' or '2'
+	bahncard: '0', // no bahncard (see https://gist.github.com/juliuste/202bb04f450a79f8fa12a2ec3abcd72d)
+	returning: null // no return journey
+}
+
+const link = (outbound, opt) => {
+	const options = merge({}, defaults, opt || {})
+
 	validateJourney(outbound, 'outbound')
 
 	const orig = outbound.legs[0].origin
@@ -53,17 +62,24 @@ const link = (outbound, returning) => {
 	const dest = outbound.legs[outbound.legs.length - 1].destination
 	const destinationId = dest.station && dest.station.id || dest.id || dest
 
-	if (returning) {
-		validateJourney(returning, 'returning')
+	if (options.returning) {
+		validateJourney(options.returning, 'opt.returning')
 
-		const rOrig = returning.legs[0].origin
+		const rOrig = options.returning.legs[0].origin
 		const rOrigId = rOrig.station && rOrig.station.id || rOrig.id || rOrig
 		if (destinationId !== rOrigId) {
-			throw new Error('origin.destination !== returning.orgin.')
+			throw new Error('origin.destination !== opt.returning.orgin.')
 		}
-		if (new Date(outbound.arrival) > new Date(returning.departure)) {
-			throw new Error('origin.destination !== returning.orgin.')
+		if (new Date(outbound.arrival) > new Date(options.returning.departure)) {
+			throw new Error('origin.destination !== opt.returning.orgin.')
 		}
+	}
+
+	if (!['1', '2'].includes(options.class)) {
+		throw new Error('opt.class must be `1` or `2`.')
+	}
+	if (typeof options.bahncard !== 'string' || options.bahncard.length > 1 || options.bahncard.length > 2) {
+		throw new Error('opt.bahncard is invalid.')
 	}
 
 	const req = {
@@ -78,8 +94,8 @@ const link = (outbound, returning) => {
 		REQ0JourneyStopsZID: 'A=1@L=00' + destinationId,
 		date: formatDate(outbound.legs[0].departure),
 		time: formatTime(outbound.legs[0].departure),
-		returnDate: returning ? formatDate(returning.legs[0].departure) : '',
-		returnTime: returning ? formatTime(returning.legs[0].departure) : '',
+		returnDate: options.returning ? formatDate(options.returning.legs[0].departure) : '',
+		returnTime: options.returning ? formatTime(options.returning.legs[0].departure) : '',
 		existOptimizePrice: '1',
 		country: 'DEU',
 		start: '1',
@@ -89,30 +105,30 @@ const link = (outbound, returning) => {
 		optimize: '0',
 		auskunft_travelers_number: '1',
 		'tariffTravellerType.1': 'E',
-		'tariffTravellerReductionClass.1': '2',
-		tariffClass: '2', // todo
+		'tariffTravellerReductionClass.1': options.bahncard,
+		tariffClass: options.class,
 		rtMode: 'DB-HYBRID',
 		HWAI: showDetails(false)
 	}
 	debug('request', req)
 
 	const onOutbound = ({data, cookies}) => {
-		const results = parse(outbound, returning, false)(data)
+		const results = parse(outbound, options.returning, false)(data)
 		const result = results.find((f) => {
-			return compareJourney(outbound, returning, f.journey, false)
+			return compareJourney(outbound, options.returning, f.journey, false)
 		})
 		if (!result) throw new Error('no matching outbound journey found')
 
 		debug('outbound next step', result.nextStep)
-		if (!returning) return result.nextStep
+		if (!options.returning) return result.nextStep
 		return request(result.nextStep, null, cookies)
 		.then(onReturning)
 	}
 
 	const onReturning = ({data}) => {
-		const results = parse(outbound, returning, true)(data)
+		const results = parse(outbound, options.returning, true)(data)
 		const result = results.find((f) => {
-			return compareJourney(outbound, returning, f.journey, true)
+			return compareJourney(outbound, options.returning, f.journey, true)
 		})
 		if (!result) throw new Error('no matching returning journey found')
 
