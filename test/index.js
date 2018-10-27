@@ -10,6 +10,7 @@ const when = require('./when')
 
 const berlin = '008011160'
 const hamburg = '008002549'
+const passau = '8000298'
 
 const hafas = createHafas('generate-db-shop-urls test')
 
@@ -49,6 +50,19 @@ test('works Berlin Hbf -> Hamburg Hbf and back', (t) => {
 		})
 	])
 	.then(([outbound, returning]) => link(outbound[0], {returning: returning[0]}))
+	.then(isBookingPage)
+	.then((isBookingPage) => {
+		t.ok(isBookingPage, 'link is not a booking page')
+		t.end()
+	})
+	.catch(t.ifError)
+})
+
+test('works Berlin Hbf -> Passau', (t) => {
+	hafas.journeys(berlin, passau, {
+		departure: when.outbound, results: 1
+	})
+	.then(([outbound]) => link(outbound))
 	.then(isBookingPage)
 	.then((isBookingPage) => {
 		t.ok(isBookingPage, 'link is not a booking page')

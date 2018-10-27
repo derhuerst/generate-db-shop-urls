@@ -8,6 +8,7 @@ const when = require('./test/when') // Monday in a week, 10am
 
 const berlin = '8011160'
 const hamburg = '8096009'
+const passau = '8000298'
 
 const options = {
 	bahncard: '0', // bahncard id (0 = no bahncard, see https://gist.github.com/juliuste/202bb04f450a79f8fa12a2ec3abcd72d)

@@ -70,7 +70,7 @@ const link = (outbound, opt) => {
 		if (destinationId !== rOrigId) {
 			throw new Error('origin.destination !== opt.returning.orgin.')
 		}
-		if (new Date(outbound.arrival) > new Date(options.returning.departure)) {
+		if (new Date(outbound.legs[outbound.legs.length-1].arrival) > new Date(options.returning.legs[0].departure)) {
 			throw new Error('origin.destination !== opt.returning.orgin.')
 		}
 	}
