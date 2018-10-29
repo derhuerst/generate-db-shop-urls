@@ -34,6 +34,7 @@ const hafas = createHafas('my-awesome-program')
 const options = {
 	bahncard: '0', // bahncard id (0 = no bahncard, see https://gist.github.com/juliuste/202bb04f450a79f8fa12a2ec3abcd72d)
 	class: '2', // '1' or '2'
+	age: 40, // age of the traveller
 	returning: null // no returning journeys
 }
 

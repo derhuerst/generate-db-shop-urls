@@ -49,6 +49,7 @@ const formatTime = (d) => {
 const defaults = {
 	class: '2', // '1' or '2'
 	bahncard: '0', // no bahncard (see https://gist.github.com/juliuste/202bb04f450a79f8fa12a2ec3abcd72d)
+	age: 40, // age of the traveller
 	returning: null // no return journey
 }
 
@@ -81,6 +82,9 @@ const link = (outbound, opt) => {
 	if (typeof options.bahncard !== 'string' || options.bahncard.length > 1 || options.bahncard.length > 2) {
 		throw new Error('opt.bahncard is invalid.')
 	}
+	if (typeof options.age !== 'number' || options.age < 0 || options.age > 200) {
+		throw new Error('opt.age is invalid.')
+	}
 
 	const req = {
 		seqnr: '1',
@@ -106,6 +110,7 @@ const link = (outbound, opt) => {
 		auskunft_travelers_number: '1',
 		'tariffTravellerType.1': 'E',
 		'tariffTravellerReductionClass.1': options.bahncard,
+		'tariffTravellerAge.1': options.age,
 		tariffClass: options.class,
 		rtMode: 'DB-HYBRID',
 		HWAI: showDetails(false)
