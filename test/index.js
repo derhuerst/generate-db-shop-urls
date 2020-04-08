@@ -2,9 +2,12 @@
 
 const test = require('tape')
 const createHafas = require('db-hafas')
+const {join} = require('path')
+const {readFileSync} = require('fs')
 const cheerio = require('cheerio')
 
 const request = require('../lib/request')
+const parse = require('../lib/parse')
 const link = require('..')
 const when = require('./when')
 
@@ -26,6 +29,16 @@ const isBookingPage = (url) => {
 		return nextButton || availContinueButton
 	})
 }
+
+const koelnMainzOutbound = require('./hafas-koeln-mainz.json')
+const koelnMainzHTML = readFileSync(join(__dirname, 'results-koeln-mainz.html'), {encoding: 'utf8'})
+const koelnMainzExpected = require('./expected-koeln-mainz.json')
+test('parsing works Köln Hbf -> Mainz Hbf', (t) => {
+	const res = parse(koelnMainzOutbound, null, false)(koelnMainzHTML)
+	// console.error(require('util').inspect(res, {depth: null, colors: true}))
+	t.deepEqual(res, koelnMainzExpected)
+	t.end()
+})
 
 test('works Berlin Hbf -> Hamburg Hbf', (t) => {
 	hafas.journeys(berlin, hamburg, {

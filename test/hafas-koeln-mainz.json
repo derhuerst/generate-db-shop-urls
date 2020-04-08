@@ -1,0 +1,87 @@
+{
+	"type": "journey",
+	"legs": [
+		{
+			"origin": {
+				"type": "stop",
+				"id": "8000207",
+				"name": "Köln Hbf",
+				"location": {
+					"type": "location",
+					"id": "8000207",
+					"latitude": 50.942823,
+					"longitude": 6.959197
+				},
+				"products": {
+					"nationalExpress": true,
+					"national": true,
+					"regionalExp": true,
+					"regional": true,
+					"suburban": true,
+					"bus": true,
+					"ferry": false,
+					"subway": false,
+					"tram": true,
+					"taxi": false
+				}
+			},
+			"destination": {
+				"type": "stop",
+				"id": "8000240",
+				"name": "Mainz Hbf",
+				"location": {
+					"type": "location",
+					"id": "8000240",
+					"latitude": 50.001239,
+					"longitude": 8.258453
+				},
+				"products": {
+					"nationalExpress": true,
+					"national": true,
+					"regionalExp": false,
+					"regional": true,
+					"suburban": true,
+					"bus": true,
+					"ferry": false,
+					"subway": false,
+					"tram": true,
+					"taxi": false
+				}
+			},
+			"arrival": "2020-04-09T00:03:00+02:00",
+			"plannedArrival": "2020-04-08T23:04:00+02:00",
+			"arrivalDelay": 3540,
+			"departure": "2020-04-08T22:19:00+02:00",
+			"plannedDeparture": "2020-04-08T21:20:00+02:00",
+			"departureDelay": 3540,
+			"reachable": true,
+			"tripId": "1|298986|0|80|8042020",
+			"line": {
+				"type": "line",
+				"id": "ic-2315",
+				"fahrtNr": "2315",
+				"name": "IC 2315",
+				"public": true,
+				"adminCode": "80____",
+				"mode": "train",
+				"product": "national",
+				"operator": {
+					"type": "operator",
+					"id": "db-fernverkehr-ag",
+					"name": "DB Fernverkehr AG"
+				}
+			},
+			"direction": "Frankfurt(Main)Hbf",
+			"arrivalPlatform": "4a/b",
+			"plannedArrivalPlatform": "4a/b",
+			"departurePlatform": "8",
+			"plannedDeparturePlatform": "7"
+		}
+	],
+	"refreshToken": "¶HKI¶T$A=1@O=Köln Hbf@L=8000207@a=128@$A=1@O=Mainz Hbf@L=8000240@a=128@$202004082120$202004082304$IC  2315$$3$",
+	"price": {
+		"amount": 38.7,
+		"currency": "EUR",
+		"hint": null
+	}
+}
