@@ -31,7 +31,7 @@ test('works Berlin Hbf -> Hamburg Hbf', (t) => {
 	hafas.journeys(berlin, hamburg, {
 		departure: when.outbound, results: 1
 	})
-	.then(([outbound]) => link(outbound))
+	.then((outbound) => link(outbound.journeys[0]))
 	.then(isBookingPage)
 	.then((isBookingPage) => {
 		t.ok(isBookingPage, 'link is not a booking page')
@@ -49,7 +49,7 @@ test('works Berlin Hbf -> Hamburg Hbf and back', (t) => {
 			departure: when.returning, results: 1
 		})
 	])
-	.then(([outbound, returning]) => link(outbound[0], {returning: returning[0]}))
+	.then(([outbound, returning]) => link(outbound.journeys[0], {returning: returning.journeys[0]}))
 	.then(isBookingPage)
 	.then((isBookingPage) => {
 		t.ok(isBookingPage, 'link is not a booking page')
@@ -62,7 +62,7 @@ test('works Berlin Hbf -> Passau', (t) => {
 	hafas.journeys(berlin, passau, {
 		departure: when.outbound, results: 1
 	})
-	.then(([outbound]) => link(outbound))
+	.then((outbound) => link(outbound.journeys[0]))
 	.then(isBookingPage)
 	.then((isBookingPage) => {
 		t.ok(isBookingPage, 'link is not a booking page')

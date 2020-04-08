@@ -19,7 +19,7 @@ const isISO8601String = str => 'string' === typeof str && !Number.isNaN(+new Dat
 
 const validateJourney = (j, name) => {
 	if (!isObj(j)) throw new Error(name + ' must be an object.')
-	const invalid = new Error(name + ' must be a valid FPTF 1.1.1 journey.')
+	const invalid = new Error(name + ' is invalid.')
 	if (j.type !== 'journey' || !Array.isArray(j.legs) || !j.legs.length) throw invalid
 	const firstLeg = j.legs[0]
 	if (!firstLeg.origin || !isISO8601String(firstLeg.departure)) throw invalid
@@ -60,7 +60,8 @@ const link = (outbound, opt) => {
 
 	const orig = outbound.legs[0].origin
 	const originId = orig.station && orig.station.id || orig.id || orig
-	const dest = outbound.legs[outbound.legs.length - 1].destination
+	const lastOutboundLeg = outbound.legs[outbound.legs.length - 1]
+	const dest = lastOutboundLeg.destination
 	const destinationId = dest.station && dest.station.id || dest.id || dest
 
 	if (options.returning) {
@@ -71,7 +72,7 @@ const link = (outbound, opt) => {
 		if (destinationId !== rOrigId) {
 			throw new Error('origin.destination !== opt.returning.orgin.')
 		}
-		if (new Date(outbound.legs[outbound.legs.length-1].arrival) > new Date(options.returning.legs[0].departure)) {
+		if (new Date(lastOutboundLeg.plannedArrival) > new Date(options.returning.legs[0].plannedDeparture)) {
 			throw new Error('origin.destination !== opt.returning.orgin.')
 		}
 	}

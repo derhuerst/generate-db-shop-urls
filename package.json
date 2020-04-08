@@ -39,11 +39,11 @@
 		"trim-newlines": "^3.0.0"
 	},
 	"peerDependencies": {
-		"db-hafas": "^3.0.0",
-		"hafas-client": "^3.0.0"
+		"db-hafas": "^5.0.0",
+		"hafas-client": "^5.0.0"
 	},
 	"devDependencies": {
-		"db-hafas": "^3.0.0",
+		"db-hafas": "^5.0.1",
 		"tape": "^4.8.0"
 	},
 	"scripts": {

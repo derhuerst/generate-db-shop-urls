@@ -29,8 +29,8 @@ const returning = hafas.journeys(hamburg, berlin, {
 
 Promise.all([outbound, returning])
 .then(([outbound, returning]) => {
-	options.returning = returning[0]
-	return generateLink(outbound[0], options)
+	options.returning = returning.journeys[0]
+	return generateLink(outbound.journeys[0], options)
 })
 
 .then((data) => {

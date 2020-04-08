@@ -1,6 +1,6 @@
 # generate-db-shop-urls
 
-**Magically generate Deutsche Bahn ticket URLs.** Searches for a ticket link in the [Deutsche Bahn shop](https://www.bahn.de/) that matches the [`journey`](https://github.com/public-transport/friendly-public-transport-format/blob/1.0.2/spec/readme.md#journey) you passed as a query. Caveats:
+**Magically generate Deutsche Bahn ticket URLs.** Searches for a ticket link in the [Deutsche Bahn shop](https://www.bahn.de/) that matches a [`journey` queried with `hafas-client@5`](https://github.com/public-transport/hafas-client/blob/5/journeys.md). Caveats:
 
 - Uses a lot of scraping, as there is no (publicly accessible) machine-readable interface to the ticket system. This makes `generate-db-shop-urls` brittle.
 
@@ -20,7 +20,7 @@ npm install generate-db-shop-urls
 
 ## Usage
 
-`generate-db-shop-urls` accepts a form very similar to the [*Friendly Public Transport Format* `1.1.1`](https://github.com/public-transport/friendly-public-transport-format/blob/1.1.1/spec/readme.md) as input.
+`generate-db-shop-urls` expects one (outbound) or two (outbound & returning) [`journey`s queried with `hafas-client@5`](https://github.com/public-transport/hafas-client/blob/5/journeys.md) as input.
 
 ```js
 const createHafas = require('db-hafas')
@@ -48,9 +48,9 @@ Promise.all([
 		results: 1
 	})
 ])
-.then(([outboundJourneys, returningJourneys]) => {
-	options.returning = returningJourneys[0]
-	return generateTicketLink(outboundJourneys[0], options)
+.then(([outbound, returning]) => {
+	options.returning = returning.journeys[0]
+	return generateTicketLink(outbound.journeys[0], options)
 })
 .then(console.log, console.error)
 ```
