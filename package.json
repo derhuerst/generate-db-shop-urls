@@ -44,7 +44,7 @@
 	},
 	"devDependencies": {
 		"db-hafas": "^5.0.1",
-		"tape": "^4.8.0"
+		"tape": "^5.0.0"
 	},
 	"scripts": {
 		"test": "env NODE_ENV=dev node test/index.js",
