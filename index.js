@@ -118,32 +118,29 @@ const link = (outbound, opt) => {
 	}
 	debug('request', req)
 
-	const onOutbound = ({data, cookies}) => {
-		const results = parse(outbound, options.returning, false)(data)
-		const result = results.find((f) => {
-			return compareJourney(outbound, options.returning, f.journey, false)
-		})
-		if (!result) throw new Error('no matching outbound journey found')
+	const {data, cookies} = await request('https://reiseauskunft.bahn.de/bin/query.exe/dn', req)
+	const results = parse(outbound, options.returning, false)(data)
 
-		debug('outbound next step', result.nextStep)
-		if (!options.returning) return result.nextStep
-		return request(result.nextStep, null, cookies)
-		.then(onReturning)
-	}
+	let result = results.find((f) => {
+		return compareJourney(outbound, options.returning, f.journey, false)
+	})
+	// todo: return `null` instead?
+	if (!result) throw new Error('no matching outbound journey found')
+	debug('outbound next step', result.nextStep)
 
-	const onReturning = ({data}) => {
+	if (options.returning) {
+		const {data} = await request(result.nextStep, null, cookies)
 		const results = parse(outbound, options.returning, true)(data)
-		const result = results.find((f) => {
+
+		result = results.find((f) => {
 			return compareJourney(outbound, options.returning, f.journey, true)
 		})
+		// todo: return `null` instead?
 		if (!result) throw new Error('no matching returning journey found')
-
 		debug('returning next step', result.nextStep)
-		return result.nextStep
 	}
 
-	return request('https://reiseauskunft.bahn.de/bin/query.exe/dn', req)
-	.then(onOutbound)
+	return result.nextStep
 }
 
 module.exports = link
