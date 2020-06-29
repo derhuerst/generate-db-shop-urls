@@ -1,12 +1,15 @@
 {
 	"name": "generate-db-shop-urls",
 	"description": "Magically generate Deutsche Bahn ticket URLs.",
-	"version": "2.0.0",
+	"version": "3.0.0",
 	"main": "index.js",
 	"files": [
 		"index.js",
 		"lib/*",
-		"example.js"
+		"example.js",
+		"LICENSE",
+		"LICENSE-PROSPERITY.md",
+		"LICENSE-APACHE"
 	],
 	"keywords": [
 		"db",
@@ -20,7 +23,21 @@
 	"homepage": "https://github.com/derhuerst/generate-db-shop-urls",
 	"repository": "derhuerst/generate-db-shop-urls",
 	"bugs": "https://github.com/derhuerst/generate-db-shop-urls/issues",
-	"license": "ISC",
+	"license": "(Apache-2.0 AND Prosperity-3.0.0)",
+	"funding": [
+		{
+			"type": "License Zero",
+			"url": "https://licensezero.com/offers/9d4977c6-44d6-4f12-bd53-59a2f14d3594"
+		},
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/derhuerst"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/derhuerst"
+		}
+	],
 	"engines": {
 		"node": ">=10"
 	},

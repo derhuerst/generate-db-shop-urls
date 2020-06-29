@@ -7,9 +7,9 @@
 
 [![npm version](https://img.shields.io/npm/v/generate-db-shop-urls.svg)](https://www.npmjs.com/package/generate-db-shop-urls)
 [![build status](https://img.shields.io/travis/derhuerst/generate-db-shop-urls.svg?branch=master)](https://travis-ci.org/derhuerst/generate-db-shop-urls)
-![ISC-licensed](https://img.shields.io/github/license/derhuerst/generate-db-shop-urls.svg)
+[![Prosperity/Apache license](https://img.shields.io/static/v1?label=license&message=Prosperity%2FApache&color=0997E8)](#license)
 [![chat on gitter](https://badges.gitter.im/derhuerst.svg)](https://gitter.im/derhuerst)
-[![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)
+[![support me via GitHub Sponsors](https://img.shields.io/badge/support%20me-donate-fa7664.svg)](https://github.com/sponsors/derhuerst)
 
 
 ## Installing
@@ -66,6 +66,19 @@ async (outbound, opt = {}) => {}
 ```
 
 
+## License
+
+This project is dual-licensed: **My contributions are licensed under the [*Prosperity Public License*](https://prosperitylicense.com), [contributions of other people](https://github.com/derhuerst/generate-db-shop-urls/graphs/contributors) are licensed as [Apache 2.0](https://apache.org/licenses/LICENSE-2.0)**.
+
+> This license allows you to use and share this software for noncommercial purposes for free and to try this software for commercial purposes for thirty days.
+
+> Personal use for research, experiment, and testing for the benefit of public knowledge, personal study, private entertainment, hobby projects, amateur pursuits, or religious observance, without any anticipated commercial application, doesn’t count as use for a commercial purpose.
+
+[Buy a commercial license](https://licensezero.com/offers/9d4977c6-44d6-4f12-bd53-59a2f14d3594) or read more about [why I sell private licenses for my projects](https://gist.github.com/derhuerst/0ef31ee82b6300d2cafd03d10dd522f7).
+
+
 ## Contributing
 
 If you have a question, found a bug or want to propose a feature, have a look at [the issues page](https://github.com/derhuerst/generate-db-shop-urls/issues).
+
+By contributing, you agree to release your modifications under the [Apache 2.0 license](LICENSE-APACHE).
