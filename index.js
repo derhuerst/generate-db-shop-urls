@@ -1,7 +1,6 @@
 'use strict'
 
 const {DateTime} = require('luxon')
-const merge = require('lodash.merge')
 const debug = require('debug')('generate-db-shop-urls')
 
 const request = require('./lib/request')
@@ -9,13 +8,13 @@ const parse = require('./lib/parse')
 const compareJourney = require('./lib/compare-journey')
 const {showDetails} = require('./lib/helpers')
 
-const isProduction = process.env.NODE_ENV !== 'production'
+const START_URL = 'https://reiseauskunft.bahn.de/bin/query.exe/dn'
 const timezone = 'Europe/Berlin'
 const locale = 'de-DE'
 
 const isObj = o => o !== null && 'object' === typeof o && !Array.isArray(o)
 
-const isISO8601String = str => 'string' === typeof str && !Number.isNaN(+new Date(str))
+const isISO8601String = str => 'string' === typeof str && !Number.isNaN(Date.parse(str))
 
 const validateJourney = (j, name) => {
 	if (!isObj(j)) throw new Error(name + ' must be an object.')
@@ -33,6 +32,7 @@ const validateJourney = (j, name) => {
 	if (isObj(dest) && dest.type !== 'station' && dest.type !== 'stop') {
 		throw new Error(name + '.destination must be a station/stop.')
 	}
+	// todo: departure, arrival
 }
 
 const formatDate = (d) => {
@@ -46,17 +46,17 @@ const formatTime = (d) => {
 	.toFormat('HH:mm')
 }
 
-const defaults = {
-	class: '2', // '1' or '2'
-	bahncard: '0', // no bahncard (see https://gist.github.com/juliuste/202bb04f450a79f8fa12a2ec3abcd72d)
-	age: 40, // age of the traveller
-	returning: null // no return journey
-}
-
-const link = (outbound, opt) => {
-	const options = merge({}, defaults, opt || {})
-
+const generateDbShopLink = async (outbound, opt) => {
 	validateJourney(outbound, 'outbound')
+
+	const options = {
+		class: '2', // '1' or '2'
+		// see https://gist.github.com/juliuste/202bb04f450a79f8fa12a2ec3abcd72d
+		bahncard: '0', // no bahncard
+		age: 40, // age of the traveller
+		returning: null, // no return journey
+		...opt,
+	}
 
 	const orig = outbound.legs[0].origin
 	const originId = orig.station && orig.station.id || orig.id || orig
@@ -72,7 +72,7 @@ const link = (outbound, opt) => {
 		if (destinationId !== rOrigId) {
 			throw new Error('origin.destination !== opt.returning.orgin.')
 		}
-		if (new Date(lastOutboundLeg.plannedArrival) > new Date(options.returning.legs[0].plannedDeparture)) {
+		if (Date.parse(lastOutboundLeg.plannedArrival) > Date.parse(options.returning.legs[0].plannedDeparture)) {
 			throw new Error('origin.destination !== opt.returning.orgin.')
 		}
 	}
@@ -118,7 +118,7 @@ const link = (outbound, opt) => {
 	}
 	debug('request', req)
 
-	const {data, cookies} = await request('https://reiseauskunft.bahn.de/bin/query.exe/dn', req)
+	const {data, cookies} = await request(START_URL, req)
 	const results = parse(outbound, options.returning, false)(data)
 
 	let result = results.find((f) => {
@@ -143,4 +143,4 @@ const link = (outbound, opt) => {
 	return result.nextStep
 }
 
-module.exports = link
+module.exports = generateDbShopLink

@@ -8,8 +8,8 @@ const when = require('./test/when') // Monday in a week, 10am
 
 const berlin = '8011160'
 const hamburg = '8096009'
-const passau = '8000298'
-const paris = '8796001'
+// const passau = '8000298'
+// const paris = '8796001'
 
 // Berlin -> Hamburg, Hamburg -> Berlin
 const hafas = createHafas('generate-db-shop-urls example')

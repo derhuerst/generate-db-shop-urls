@@ -31,7 +31,6 @@
 		"fetch-ponyfill": "^6.0.0",
 		"iconv-lite": "^0.6.0",
 		"is-roughly-equal": "^0.1.0",
-		"lodash.merge": "^4.6.1",
 		"luxon": "^1.0.0",
 		"moment-timezone": "^0.5.14",
 		"pinkie-promise": "^2.0.1",
