@@ -6,7 +6,6 @@
 - Because of how (bad) the shop works, the generated links will only be valid with a browser session that hasn't recently been used to search for a connection, or one without any cookies/session.
 
 [![npm version](https://img.shields.io/npm/v/generate-db-shop-urls.svg)](https://www.npmjs.com/package/generate-db-shop-urls)
-[![build status](https://img.shields.io/travis/derhuerst/generate-db-shop-urls.svg?branch=master)](https://travis-ci.org/derhuerst/generate-db-shop-urls)
 [![Prosperity/Apache license](https://img.shields.io/static/v1?label=license&message=Prosperity%2FApache&color=0997E8)](#license)
 [![support me via GitHub Sponsors](https://img.shields.io/badge/support%20me-donate-fa7664.svg)](https://github.com/sponsors/derhuerst)
 [![chat with me on Twitter](https://img.shields.io/badge/chat%20with%20me-on%20Twitter-1da1f2.svg)](https://twitter.com/derhuerst)
