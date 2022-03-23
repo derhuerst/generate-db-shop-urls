@@ -88,6 +88,7 @@ const generateDbShopLink = async (outbound, opt) => {
 	}
 
 	const req = {
+		// todo: https://gist.github.com/derhuerst/5abc2e1f74b9bb29a3aeffe59b503103/edit
 		seqnr: '1',
 		// WAT. Their API fails if `S` is missing, even though the ID in
 		// `REQ0JourneyStopsSID` overrides whatever is in `S`. Same for
