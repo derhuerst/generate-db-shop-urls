@@ -52,7 +52,7 @@
 		"moment-timezone": "^0.5.14",
 		"pinkie-promise": "^2.0.1",
 		"slugg": "^1.2.0",
-		"trim-newlines": "^3.0.0"
+		"trim-newlines": "^3.0.1"
 	},
 	"peerDependencies": {
 		"db-hafas": "^5.0.0",
