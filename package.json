@@ -39,7 +39,7 @@
 		}
 	],
 	"engines": {
-		"node": ">=10"
+		"node": ">=16"
 	},
 	"dependencies": {
 		"cheerio": "^1.0.0-rc.2",
