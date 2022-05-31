@@ -33,6 +33,7 @@ const isBookingPage = async (url) => {
 }
 
 test('parsing works Köln Hbf -> Mainz Hbf', (t) => {
+	// TODO add result page with new layout, adjust outbound request and expected result
 	const res = parse(koelnMainzOutbound, null, false)(koelnMainzHTML)
 	t.deepEqual(res, koelnMainzExpected)
 	t.end()

@@ -1,11 +1,11 @@
 {
 	"extends": "eslint:recommended",
 	"env": {
-		"es2018": true,
+		"es2021": true,
 		"node": true
 	},
 	"parserOptions": {
-        "ecmaVersion": 2018
+        "ecmaVersion": 2021
 	},
 	"ignorePatterns": [
 		"node_modules"
