@@ -1,6 +1,5 @@
 'use strict'
 
-const util = require('util')
 const createHafas = require('db-hafas')
 
 const generateLink = require('.')

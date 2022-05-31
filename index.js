@@ -80,10 +80,18 @@ const generateDbShopLink = async (outbound, opt) => {
 	if (!['1', '2'].includes(options.class)) {
 		throw new Error('opt.class must be `1` or `2`.')
 	}
-	if (typeof options.bahncard !== 'string' || options.bahncard.length > 1 || options.bahncard.length > 2) {
+	if (
+		typeof options.bahncard !== 'string'
+		|| options.bahncard.length > 1
+		|| options.bahncard.length > 2
+	) {
 		throw new Error('opt.bahncard is invalid.')
 	}
-	if (typeof options.age !== 'number' || options.age < 0 || options.age > 200) {
+	if (
+		typeof options.age !== 'number'
+		|| options.age < 0
+		|| options.age > 200
+	) {
 		throw new Error('opt.age is invalid.')
 	}
 
