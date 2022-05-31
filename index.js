@@ -59,16 +59,16 @@ const generateDbShopLink = async (outbound, opt) => {
 	}
 
 	const orig = outbound.legs[0].origin
-	const originId = orig.station && orig.station.id || orig.id || orig
+	const originId = orig.station?.id || orig.id || orig
 	const lastOutboundLeg = outbound.legs[outbound.legs.length - 1]
 	const dest = lastOutboundLeg.destination
-	const destinationId = dest.station && dest.station.id || dest.id || dest
+	const destinationId = dest.station?.id || dest.id || dest
 
 	if (options.returning) {
 		validateJourney(options.returning, 'opt.returning')
 
 		const rOrig = options.returning.legs[0].origin
-		const rOrigId = rOrig.station && rOrig.station.id || rOrig.id || rOrig
+		const rOrigId = rOrig.station?.id || rOrig.id || rOrig
 		if (destinationId !== rOrigId) {
 			throw new Error('origin.destination !== opt.returning.orgin.')
 		}
