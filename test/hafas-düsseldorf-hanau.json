@@ -1,0 +1,251 @@
+{
+	"type": "journey",
+	"legs": [
+		{
+			"origin": {
+				"type": "stop",
+				"id": "8000085",
+				"name": "Düsseldorf Hbf",
+				"location": {
+					"type": "location",
+					"id": "8000085",
+					"latitude": 51.219708,
+					"longitude": 6.794011
+				},
+				"products": {
+					"nationalExpress": true,
+					"national": true,
+					"regionalExp": true,
+					"regional": true,
+					"suburban": true,
+					"bus": true,
+					"ferry": false,
+					"subway": true,
+					"tram": true,
+					"taxi": false
+				}
+			},
+			"destination": {
+				"type": "stop",
+				"id": "8070003",
+				"name": "Frankfurt(M) Flughafen Fernbf",
+				"location": {
+					"type": "location",
+					"id": "8070003",
+					"latitude": 50.052926,
+					"longitude": 8.569776
+				},
+				"products": {
+					"nationalExpress": true,
+					"national": true,
+					"regionalExp": true,
+					"regional": true,
+					"suburban": true,
+					"bus": false,
+					"ferry": false,
+					"subway": false,
+					"tram": false,
+					"taxi": false
+				}
+			},
+			"departure": "2022-06-01T15:19:00+02:00",
+			"plannedDeparture": "2022-06-01T15:11:00+02:00",
+			"departureDelay": 480,
+			"arrival": "2022-06-01T16:33:00+02:00",
+			"plannedArrival": "2022-06-01T16:33:00+02:00",
+			"arrivalDelay": 0,
+			"reachable": true,
+			"tripId": "1|208431|0|80|1062022",
+			"line": {
+				"type": "line",
+				"id": "ice-723",
+				"fahrtNr": "723",
+				"name": "ICE 723",
+				"public": true,
+				"adminCode": "80____",
+				"productName": "ICE",
+				"mode": "train",
+				"product": "nationalExpress",
+				"operator": {
+					"type": "operator",
+					"id": "db-fernverkehr-ag",
+					"name": "DB Fernverkehr AG"
+				}
+			},
+			"direction": "München Hbf",
+			"currentLocation": {
+				"type": "location",
+				"latitude": 51.435998,
+				"longitude": 6.781273
+			},
+			"arrivalPlatform": "Fern 4",
+			"plannedArrivalPlatform": "Fern 4",
+			"departurePlatform": "16",
+			"plannedDeparturePlatform": "16",
+			"loadFactor": "low-to-medium"
+		},
+		{
+			"origin": {
+				"type": "stop",
+				"id": "8070003",
+				"name": "Frankfurt(M) Flughafen Fernbf",
+				"location": {
+					"type": "location",
+					"id": "8070003",
+					"latitude": 50.052926,
+					"longitude": 8.569776
+				},
+				"products": {
+					"nationalExpress": true,
+					"national": true,
+					"regionalExp": true,
+					"regional": true,
+					"suburban": true,
+					"bus": false,
+					"ferry": false,
+					"subway": false,
+					"tram": false,
+					"taxi": false
+				}
+			},
+			"destination": {
+				"type": "stop",
+				"id": "8002041",
+				"name": "Frankfurt(Main)Süd",
+				"location": {
+					"type": "location",
+					"id": "8002041",
+					"latitude": 50.099302,
+					"longitude": 8.686187
+				},
+				"products": {
+					"nationalExpress": true,
+					"national": true,
+					"regionalExp": true,
+					"regional": true,
+					"suburban": true,
+					"bus": true,
+					"ferry": false,
+					"subway": true,
+					"tram": true,
+					"taxi": false
+				}
+			},
+			"departure": "2022-06-01T16:46:00+02:00",
+			"plannedDeparture": "2022-06-01T16:46:00+02:00",
+			"departureDelay": 0,
+			"arrival": "2022-06-01T17:00:00+02:00",
+			"plannedArrival": "2022-06-01T17:00:00+02:00",
+			"arrivalDelay": 0,
+			"reachable": true,
+			"tripId": "1|263903|0|80|1062022",
+			"line": {
+				"type": "line",
+				"id": "hlb-rb58",
+				"fahrtNr": "28647",
+				"name": "HLB RB58",
+				"public": true,
+				"adminCode": "K4RB__",
+				"productName": "HLB",
+				"mode": "train",
+				"product": "regional",
+				"operator": {
+					"type": "operator",
+					"id": "hessische-landesbahn",
+					"name": "Hessische Landesbahn"
+				},
+				"additionalName": "HLB RB58"
+			},
+			"direction": "Aschaffenburg Hbf",
+			"arrivalPlatform": "8",
+			"plannedArrivalPlatform": "8",
+			"departurePlatform": "Fern 4",
+			"plannedDeparturePlatform": "Fern 4"
+		},
+		{
+			"origin": {
+				"type": "stop",
+				"id": "8002041",
+				"name": "Frankfurt(Main)Süd",
+				"location": {
+					"type": "location",
+					"id": "8002041",
+					"latitude": 50.099302,
+					"longitude": 8.686187
+				},
+				"products": {
+					"nationalExpress": true,
+					"national": true,
+					"regionalExp": true,
+					"regional": true,
+					"suburban": true,
+					"bus": true,
+					"ferry": false,
+					"subway": true,
+					"tram": true,
+					"taxi": false
+				}
+			},
+			"destination": {
+				"type": "stop",
+				"id": "8000150",
+				"name": "Hanau Hbf",
+				"location": {
+					"type": "location",
+					"id": "8000150",
+					"latitude": 50.120903,
+					"longitude": 8.92921
+				},
+				"products": {
+					"nationalExpress": true,
+					"national": true,
+					"regionalExp": true,
+					"regional": true,
+					"suburban": true,
+					"bus": true,
+					"ferry": false,
+					"subway": false,
+					"tram": false,
+					"taxi": true
+				}
+			},
+			"departure": "2022-06-01T17:09:00+02:00",
+			"plannedDeparture": "2022-06-01T17:09:00+02:00",
+			"departureDelay": null,
+			"arrival": "2022-06-01T17:21:00+02:00",
+			"plannedArrival": "2022-06-01T17:21:00+02:00",
+			"arrivalDelay": null,
+			"reachable": true,
+			"tripId": "1|237232|0|80|1062022",
+			"line": {
+				"type": "line",
+				"id": "rb-51",
+				"fahrtNr": "15556",
+				"name": "RB 51",
+				"public": true,
+				"adminCode": "8005KG",
+				"productName": "RB",
+				"mode": "train",
+				"product": "regional",
+				"operator": {
+					"type": "operator",
+					"id": "db-regio-ag-mitte",
+					"name": "DB Regio AG Mitte"
+				},
+				"additionalName": "RB 51"
+			},
+			"direction": "Bad Soden-Salmünster",
+			"arrivalPlatform": "7",
+			"plannedArrivalPlatform": "7",
+			"departurePlatform": "9",
+			"plannedDeparturePlatform": "9"
+		}
+	],
+	"refreshToken": "¶HKI¶T$A=1@O=Düsseldorf Hbf@L=8000085@a=128@$A=1@O=Frankfurt(M) Flughafen Fernbf@L=8070003@a=128@$202206011511$202206011633$ICE  723$$1$$$$§T$A=1@O=Frankfurt(M) Flughafen Fernbf@L=8070003@a=128@$A=1@O=Frankfurt(Main)Süd@L=8002041@a=128@$202206011646$202206011700$HLB28647$$1$$$$§T$A=1@O=Frankfurt(Main)Süd@L=8002041@a=128@$A=1@O=Hanau Hbf@L=8000150@a=128@$202206011709$202206011721$RB 15556$$1$$$$",
+	"remarks": [],
+	"price": {
+		"amount": 82.6,
+		"currency": "EUR",
+		"hint": null
+	}
+}

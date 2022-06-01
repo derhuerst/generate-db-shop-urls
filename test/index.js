@@ -11,9 +11,9 @@ const parse = require('../lib/parse')
 const link = require('..')
 const when = require('./when')
 
-const koelnMainzOutbound = require('./hafas-koeln-mainz.json')
-const koelnMainzHTML = readFileSync(join(__dirname, 'results-koeln-mainz.html'), {encoding: 'utf8'})
-const koelnMainzExpected = require('./expected-koeln-mainz.json')
+const düsseldorfHanauOutbound = require('./hafas-düsseldorf-hanau.json')
+const düsseldorfHanauHTML = readFileSync(join(__dirname, 'results-düsseldorf-hanau.html'), {encoding: 'utf8'})
+const düsseldorfHanauExpected = require('./expected-düsseldorf-hanau.json')
 
 const berlin = '8011160'
 const hamburg = '8002549'
@@ -29,13 +29,12 @@ const isBookingPage = async (url) => {
 	// this is a really really brittle way to tell if the link generation
 	// worked, hence if we're on the right page.
 	// todo: find a more robust way, compare prices
-	return nextButton || availContinueButton
+	return !!(nextButton || availContinueButton)
 }
 
-test('parsing works Köln Hbf -> Mainz Hbf', (t) => {
-	// TODO add result page with new layout, adjust outbound request and expected result
-	const res = parse(koelnMainzOutbound, null, false)(koelnMainzHTML)
-	t.deepEqual(res, koelnMainzExpected)
+test('parsing works Düsseldorf Hbf -> Hanau Hbf', (t) => {
+	const res = parse(düsseldorfHanauOutbound, null, false)(düsseldorfHanauHTML)
+	t.deepEqual(res, düsseldorfHanauExpected)
 	t.end()
 })
 

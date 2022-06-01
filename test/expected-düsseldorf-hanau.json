@@ -1,0 +1,435 @@
+[
+	{
+		"journey": {
+			"type": "journey",
+			"id": "af7d582d0ea3d0e2cb63436a1612cc1954c63997",
+			"legs": [
+				{
+					"public": true,
+					"origin": {
+						"type": "station",
+						"id": null,
+						"name": "Düsseldorf Hbf"
+					},
+					"departurePlatform": "16",
+					"departure": "2022-06-01T13:18:00.000Z",
+					"plannedDeparture": "2022-06-01T13:11:00.000Z",
+					"departureDelay": 420,
+					"lines": [
+						{
+							"type": "line",
+							"id": "ice-723",
+							"name": "ICE 723",
+							"fahrtNr": null
+						}
+					],
+					"destination": {
+						"type": "station",
+						"id": null,
+						"name": "Frankfurt(M) Flughafen Fernbf"
+					},
+					"arrivalPlatform": "Fern",
+					"arrival": "2022-06-01T14:33:00.000Z",
+					"plannedArrival": "2022-06-01T14:33:00.000Z",
+					"arrivalDelay": 0
+				},
+				{
+					"public": true,
+					"origin": {
+						"type": "station",
+						"id": null,
+						"name": "Frankfurt(M) Flughafen Fernbf"
+					},
+					"departurePlatform": "Fern",
+					"departure": "2022-06-01T14:46:00.000Z",
+					"plannedDeparture": "2022-06-01T14:46:00.000Z",
+					"departureDelay": 0,
+					"lines": [
+						{
+							"type": "line",
+							"id": "28647",
+							"name": "HLB RB58",
+							"fahrtNr": "28647"
+						}
+					],
+					"destination": {
+						"type": "station",
+						"id": null,
+						"name": "Frankfurt(Main)Süd"
+					},
+					"arrivalPlatform": "8",
+					"arrival": "2022-06-01T15:00:00.000Z",
+					"plannedArrival": "2022-06-01T15:00:00.000Z",
+					"arrivalDelay": 0
+				},
+				{
+					"public": true,
+					"origin": {
+						"type": "station",
+						"id": null,
+						"name": "Frankfurt(Main)Süd"
+					},
+					"departurePlatform": "9",
+					"departure": null,
+					"plannedDeparture": "2022-06-01T15:09:00.000Z",
+					"departureDelay": null,
+					"lines": [
+						{
+							"type": "line",
+							"id": "15556",
+							"name": "RB 51",
+							"fahrtNr": "15556"
+						}
+					],
+					"destination": {
+						"type": "station",
+						"id": null,
+						"name": "Hanau Hbf"
+					},
+					"arrivalPlatform": "7",
+					"arrival": null,
+					"plannedArrival": "2022-06-01T15:21:00.000Z",
+					"arrivalDelay": null
+				}
+			],
+			"price": {
+				"amount": 82.6,
+				"currency": "EUR"
+			},
+			"discount": {
+				"amount": null,
+				"currency": null
+			}
+		},
+		"nextStep": "https://reiseauskunft.bahn.de/bin/query.exe/dn?ld=43121&protocol=https%3A&seqnr=1&ident=1j.020193121.1654088623&rt=1&rememberSortType=minDeparture&sTID=C0-0.0%401&oCID=C0-0&orderSOP=yes&showAvail=yes&completeFulfillment=1&hafasSessionExpires=0106221518&zielorth=Hanau&zielortb=rheinmain&zielorta=DEU&xcoorda=8929003&ycoorda=50120957&distancea=193&zielortm=Hanau%20Hbf&services=hbma&bcrvglpreis=8260&HWAI=CONNECTION%24C1-0!id%3DC1-0!HwaiConId%3DC1-0!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-1!id%3DC1-1!HwaiConId%3DC1-1!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-2!id%3DC1-2!HwaiConId%3DC1-2!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-3!id%3DC1-3!HwaiConId%3DC1-3!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-4!id%3DC1-4!HwaiConId%3DC1-4!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo"
+	},
+	{
+		"journey": {
+			"type": "journey",
+			"id": "d41e6c78ca3238b006f04f708e25350522813573",
+			"legs": [
+				{
+					"public": true,
+					"origin": {
+						"type": "station",
+						"id": null,
+						"name": "Düsseldorf Hbf"
+					},
+					"departurePlatform": "16",
+					"departure": "2022-06-01T13:18:00.000Z",
+					"plannedDeparture": "2022-06-01T13:11:00.000Z",
+					"departureDelay": 420,
+					"lines": [
+						{
+							"type": "line",
+							"id": "ice-723",
+							"name": "ICE 723",
+							"fahrtNr": null
+						}
+					],
+					"destination": {
+						"type": "station",
+						"id": null,
+						"name": "Frankfurt(M) Flughafen Fernbf"
+					},
+					"arrivalPlatform": "Fern",
+					"arrival": "2022-06-01T14:33:00.000Z",
+					"plannedArrival": "2022-06-01T14:33:00.000Z",
+					"arrivalDelay": 0
+				},
+				{
+					"public": true,
+					"origin": {
+						"type": "station",
+						"id": null,
+						"name": "Frankfurt(M) Flughafen Fernbf"
+					},
+					"departurePlatform": "Fern",
+					"departure": "2022-06-01T14:46:00.000Z",
+					"plannedDeparture": "2022-06-01T14:46:00.000Z",
+					"departureDelay": 0,
+					"lines": [
+						{
+							"type": "line",
+							"id": "28647",
+							"name": "HLB RB58",
+							"fahrtNr": "28647"
+						}
+					],
+					"destination": {
+						"type": "station",
+						"id": null,
+						"name": "Hanau Hbf"
+					},
+					"arrivalPlatform": "103",
+					"arrival": "2022-06-01T15:22:00.000Z",
+					"plannedArrival": "2022-06-01T15:22:00.000Z",
+					"arrivalDelay": 0
+				}
+			],
+			"price": {
+				"amount": 82.6,
+				"currency": "EUR"
+			},
+			"discount": {
+				"amount": null,
+				"currency": null
+			}
+		},
+		"nextStep": "https://reiseauskunft.bahn.de/bin/query.exe/dn?ld=43121&protocol=https%3A&seqnr=1&ident=1j.020193121.1654088623&rt=1&rememberSortType=minDeparture&sTID=C0-1.0%401&oCID=C0-1&orderSOP=yes&showAvail=yes&completeFulfillment=1&hafasSessionExpires=0106221518&zielorth=Hanau&zielortb=rheinmain&zielorta=DEU&xcoorda=8929003&ycoorda=50120957&distancea=193&zielortm=Hanau%20Hbf&services=hbma&bcrvglpreis=8260&HWAI=CONNECTION%24C1-0!id%3DC1-0!HwaiConId%3DC1-0!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-1!id%3DC1-1!HwaiConId%3DC1-1!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-2!id%3DC1-2!HwaiConId%3DC1-2!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-3!id%3DC1-3!HwaiConId%3DC1-3!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-4!id%3DC1-4!HwaiConId%3DC1-4!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo"
+	},
+	{
+		"journey": {
+			"type": "journey",
+			"id": "95a05a54de488d1f6cc47bb931317f5563347068",
+			"legs": [
+				{
+					"public": true,
+					"origin": {
+						"type": "station",
+						"id": null,
+						"name": "Düsseldorf Hbf"
+					},
+					"departurePlatform": "16",
+					"departure": "2022-06-01T13:27:00.000Z",
+					"plannedDeparture": "2022-06-01T13:27:00.000Z",
+					"departureDelay": 0,
+					"lines": [
+						{
+							"type": "line",
+							"id": "ice-927",
+							"name": "ICE 927",
+							"fahrtNr": null
+						}
+					],
+					"destination": {
+						"type": "station",
+						"id": null,
+						"name": "Köln Messe/Deutz Gl.11-12"
+					},
+					"arrivalPlatform": "11",
+					"arrival": "2022-06-01T13:46:00.000Z",
+					"plannedArrival": "2022-06-01T13:46:00.000Z",
+					"arrivalDelay": 0
+				},
+				{
+					"public": true,
+					"origin": {
+						"type": "station",
+						"id": null,
+						"name": "Köln Messe/Deutz Gl.11-12"
+					},
+					"departurePlatform": "11",
+					"departure": null,
+					"plannedDeparture": "2022-06-01T14:01:00.000Z",
+					"departureDelay": null,
+					"lines": [
+						{
+							"type": "line",
+							"id": "ice-819",
+							"name": "ICE 819",
+							"fahrtNr": null
+						}
+					],
+					"destination": {
+						"type": "station",
+						"id": null,
+						"name": "Frankfurt(Main)Hbf"
+					},
+					"arrivalPlatform": "17",
+					"arrival": null,
+					"plannedArrival": "2022-06-01T15:24:00.000Z",
+					"arrivalDelay": null
+				},
+				{
+					"public": true,
+					"origin": {
+						"type": "station",
+						"id": null,
+						"name": "Frankfurt(Main)Hbf"
+					},
+					"departurePlatform": "6",
+					"departure": null,
+					"plannedDeparture": "2022-06-01T15:34:00.000Z",
+					"departureDelay": null,
+					"lines": [
+						{
+							"type": "line",
+							"id": "4625",
+							"name": "RE 55",
+							"fahrtNr": "4625"
+						}
+					],
+					"destination": {
+						"type": "station",
+						"id": null,
+						"name": "Hanau Hbf"
+					},
+					"arrivalPlatform": "103",
+					"arrival": null,
+					"plannedArrival": "2022-06-01T15:55:00.000Z",
+					"arrivalDelay": null
+				}
+			],
+			"price": {
+				"amount": 82.6,
+				"currency": "EUR"
+			},
+			"discount": {
+				"amount": null,
+				"currency": null
+			}
+		},
+		"nextStep": "https://reiseauskunft.bahn.de/bin/query.exe/dn?ld=43121&protocol=https%3A&seqnr=1&ident=1j.020193121.1654088623&rt=1&rememberSortType=minDeparture&sTID=C0-2.0%401&oCID=C0-2&orderSOP=yes&showAvail=yes&completeFulfillment=1&hafasSessionExpires=0106221518&zielorth=Hanau&zielortb=rheinmain&zielorta=DEU&xcoorda=8929003&ycoorda=50120957&distancea=193&zielortm=Hanau%20Hbf&services=hbma&bcrvglpreis=8260&HWAI=CONNECTION%24C1-0!id%3DC1-0!HwaiConId%3DC1-0!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-1!id%3DC1-1!HwaiConId%3DC1-1!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-2!id%3DC1-2!HwaiConId%3DC1-2!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-3!id%3DC1-3!HwaiConId%3DC1-3!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-4!id%3DC1-4!HwaiConId%3DC1-4!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo"
+	},
+	{
+		"journey": {
+			"type": "journey",
+			"id": "eec7312a630df029f92471ef611c770d892b15f1",
+			"legs": [
+				{
+					"public": true,
+					"origin": {
+						"type": "station",
+						"id": null,
+						"name": "Düsseldorf Hbf"
+					},
+					"departurePlatform": "16",
+					"departure": "2022-06-01T13:27:00.000Z",
+					"plannedDeparture": "2022-06-01T13:27:00.000Z",
+					"departureDelay": 0,
+					"lines": [
+						{
+							"type": "line",
+							"id": "ice-927",
+							"name": "ICE 927",
+							"fahrtNr": null
+						}
+					],
+					"destination": {
+						"type": "station",
+						"id": null,
+						"name": "Hanau Hbf"
+					},
+					"arrivalPlatform": "103",
+					"arrival": "2022-06-01T16:28:00.000Z",
+					"plannedArrival": "2022-06-01T16:28:00.000Z",
+					"arrivalDelay": 0
+				}
+			],
+			"price": {
+				"amount": null,
+				"currency": null
+			},
+			"discount": {
+				"amount": 55.9,
+				"currency": "EUR"
+			}
+		},
+		"nextStep": "https://reiseauskunft.bahn.de/bin/query.exe/dn?ld=43121&protocol=https%3A&seqnr=1&ident=1j.020193121.1654088623&rt=1&rememberSortType=minDeparture&sTID=C0-3.1%401830&oCID=C0-3&showAvail=yes&completeFulfillment=1&HWAI=CONNECTION%24C1-0!id%3DC1-0!HwaiConId%3DC1-0!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-1!id%3DC1-1!HwaiConId%3DC1-1!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-2!id%3DC1-2!HwaiConId%3DC1-2!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-3!id%3DC1-3!HwaiConId%3DC1-3!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-4!id%3DC1-4!HwaiConId%3DC1-4!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo"
+	},
+	{
+		"journey": {
+			"type": "journey",
+			"id": "7f603078289b6b554e9d8399b28cc55194c0e339",
+			"legs": [
+				{
+					"public": true,
+					"origin": {
+						"type": "station",
+						"id": null,
+						"name": "Düsseldorf Hbf"
+					},
+					"departurePlatform": "16",
+					"departure": null,
+					"plannedDeparture": "2022-06-01T14:08:00.000Z",
+					"departureDelay": null,
+					"lines": [
+						{
+							"type": "line",
+							"id": "ice-1123",
+							"name": "ICE 1123",
+							"fahrtNr": null
+						}
+					],
+					"destination": {
+						"type": "station",
+						"id": null,
+						"name": "Frankfurt(M) Flughafen Fernbf"
+					},
+					"arrivalPlatform": "Fern",
+					"arrival": null,
+					"plannedArrival": "2022-06-01T15:17:00.000Z",
+					"arrivalDelay": null
+				},
+				{
+					"public": true,
+					"origin": {
+						"type": "station",
+						"id": null,
+						"name": "Frankfurt(M) Flughafen Fernbf"
+					},
+					"departurePlatform": "Fern",
+					"departure": null,
+					"plannedDeparture": "2022-06-01T15:27:00.000Z",
+					"departureDelay": null,
+					"lines": [
+						{
+							"type": "line",
+							"id": "ice-17",
+							"name": "ICE 17",
+							"fahrtNr": null
+						}
+					],
+					"destination": {
+						"type": "station",
+						"id": null,
+						"name": "Frankfurt(Main)Hbf"
+					},
+					"arrivalPlatform": "20",
+					"arrival": null,
+					"plannedArrival": "2022-06-01T15:40:00.000Z",
+					"arrivalDelay": null
+				},
+				{
+					"public": true,
+					"origin": {
+						"type": "station",
+						"id": null,
+						"name": "Frankfurt(Main)Hbf"
+					},
+					"departurePlatform": "5",
+					"departure": null,
+					"plannedDeparture": "2022-06-01T15:50:00.000Z",
+					"departureDelay": null,
+					"lines": [
+						{
+							"type": "line",
+							"id": "4544",
+							"name": "RE 50",
+							"fahrtNr": "4544"
+						}
+					],
+					"destination": {
+						"type": "station",
+						"id": null,
+						"name": "Hanau Hbf"
+					},
+					"arrivalPlatform": "7",
+					"arrival": null,
+					"plannedArrival": "2022-06-01T16:06:00.000Z",
+					"arrivalDelay": null
+				}
+			],
+			"price": {
+				"amount": 82.6,
+				"currency": "EUR"
+			},
+			"discount": {
+				"amount": null,
+				"currency": null
+			}
+		},
+		"nextStep": "https://reiseauskunft.bahn.de/bin/query.exe/dn?ld=43121&protocol=https%3A&seqnr=1&ident=1j.020193121.1654088623&rt=1&rememberSortType=minDeparture&sTID=C0-4.0%401&oCID=C0-4&orderSOP=yes&showAvail=yes&completeFulfillment=1&hafasSessionExpires=0106221518&zielorth=Hanau&zielortb=rheinmain&zielorta=DEU&xcoorda=8929003&ycoorda=50120957&distancea=193&zielortm=Hanau%20Hbf&services=hbma&bcrvglpreis=8260&HWAI=CONNECTION%24C1-0!id%3DC1-0!HwaiConId%3DC1-0!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-1!id%3DC1-1!HwaiConId%3DC1-1!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-2!id%3DC1-2!HwaiConId%3DC1-2!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-3!id%3DC1-3!HwaiConId%3DC1-3!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-4!id%3DC1-4!HwaiConId%3DC1-4!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo"
+	}
+]
