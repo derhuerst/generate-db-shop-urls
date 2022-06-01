@@ -98,33 +98,45 @@ const generateDbShopLink = async (outbound, opt) => {
 
 	const req = {
 		// todo: https://gist.github.com/derhuerst/5abc2e1f74b9bb29a3aeffe59b503103/edit
-		seqnr: '1',
+		revia: 'yes',
+		'existOptimizePrice-deactivated': '1',
+		country: 'DEU',
+		// dbkanal_007: 'L01_S01_D001_qf-bahn-svb-kl2_lz03',
+		start: '1',
+		protocol: 'https:',
+		// HAFAS mgate.exe uses `HYBRID`
+		rtMode: 'DB-HYBRID',
+		externRequest: 'yes',
+		HWAI: showDetails(false),
+
 		// WAT. Their API fails if `S` is missing, even though the ID in
 		// `REQ0JourneyStopsSID` overrides whatever is in `S`. Same for
 		// `Z` and `REQ0JourneyStopsZID`.
-		S: 'foo',
 		// todo: support POIs and addresses
+		REQ0JourneyStopsS0A: '1',
+		S: 'foo',
 		REQ0JourneyStopsSID: 'A=1@L=00' + originId,
+		REQ0JourneyStopsZ0A: '1',
 		Z: 'bar',
 		REQ0JourneyStopsZID: 'A=1@L=00' + destinationId,
+
+		// todo: a few minutes earlier?
 		date: formatDate(outbound.legs[0].departure),
 		time: formatTime(outbound.legs[0].departure),
+		timesel: 'depart',
+
+		// todo: a few minutes earlier?
 		returnDate: options.returning ? formatDate(options.returning.legs[0].departure) : '',
 		returnTime: options.returning ? formatTime(options.returning.legs[0].departure) : '',
-		existOptimizePrice: '1',
-		country: 'DEU',
-		start: '1',
-		REQ0JourneyStopsS0A: '1',
-		timesel: 'depart',
 		returnTimesel: 'depart',
+
 		optimize: '0',
 		auskunft_travelers_number: '1',
+		// todo: make customisable
 		'tariffTravellerType.1': 'E',
 		'tariffTravellerReductionClass.1': options.bahncard,
 		'tariffTravellerAge.1': options.age,
 		tariffClass: options.class,
-		rtMode: 'DB-HYBRID',
-		HWAI: showDetails(false)
 	}
 	debug('request', req)
 
