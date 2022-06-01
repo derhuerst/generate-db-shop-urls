@@ -2,6 +2,7 @@
 
 const {DateTime} = require('luxon')
 const debug = require('debug')('generate-db-shop-urls')
+const debugResponse = require('debug')('generate-db-shop-urls:response')
 
 const request = require('./lib/request')
 const parse = require('./lib/parse')
@@ -128,7 +129,10 @@ const generateDbShopLink = async (outbound, opt) => {
 	debug('request', req)
 
 	const {data, cookies} = await request(START_URL, req)
+	debug('cookies', cookies)
+	debugResponse(data)
 	const results = parse(outbound, options.returning, false)(data)
+	debug('outbound results', ...results)
 
 	let result = results.find((f) => {
 		return compareJourney(outbound, options.returning, f.journey, false)
@@ -139,7 +143,9 @@ const generateDbShopLink = async (outbound, opt) => {
 
 	if (options.returning) {
 		const {data} = await request(result.nextStep, null, cookies)
+		debugResponse(data)
 		const results = parse(outbound, options.returning, true)(data)
+		debug('returning results', ...results)
 
 		result = results.find((f) => {
 			return compareJourney(outbound, options.returning, f.journey, true)
