@@ -99,14 +99,11 @@ const generateDbShopLink = async (outbound, opt) => {
 	const req = {
 		// todo: https://gist.github.com/derhuerst/5abc2e1f74b9bb29a3aeffe59b503103/edit
 		revia: 'yes',
-		'existOptimizePrice-deactivated': '1',
-		country: 'DEU',
-		// dbkanal_007: 'L01_S01_D001_qf-bahn-svb-kl2_lz03',
-		start: '1',
-		protocol: 'https:',
+		existOptimizePrice: '1',
+		REQ0HafasOptimize1: '0:1',
+		start: 'Suchen',
 		// HAFAS mgate.exe uses `HYBRID`
-		rtMode: 'DB-HYBRID',
-		externRequest: 'yes',
+		rtMode: '12',
 		HWAI: showDetails(false),
 
 		// WAT. Their API fails if `S` is missing, even though the ID in
@@ -121,22 +118,21 @@ const generateDbShopLink = async (outbound, opt) => {
 		REQ0JourneyStopsZID: 'A=1@L=00' + destinationId,
 
 		// todo: a few minutes earlier?
-		date: formatDate(outbound.legs[0].departure),
-		time: formatTime(outbound.legs[0].departure),
-		timesel: 'depart',
+		REQ0JourneyDate: formatDate(outbound.legs[0].departure),
+		REQ0JourneyTime: formatTime(outbound.legs[0].departure),
+		REQ0HafasSearchForw: '1',
 
 		// todo: a few minutes earlier?
-		returnDate: options.returning ? formatDate(options.returning.legs[0].departure) : '',
-		returnTime: options.returning ? formatTime(options.returning.legs[0].departure) : '',
-		returnTimesel: 'depart',
+		REQ1JourneyDate: options.returning ? formatDate(options.returning.legs[0].departure) : '',
+		REQ1JourneyTime: options.returning ? formatTime(options.returning.legs[0].departure) : '',
+		REQ1HafasSearchForw: '1',
 
-		optimize: '0',
-		auskunft_travelers_number: '1',
+		traveller_Nr: '1',
 		// todo: make customisable
-		'tariffTravellerType.1': 'E',
-		'tariffTravellerReductionClass.1': options.bahncard,
-		'tariffTravellerAge.1': options.age,
-		tariffClass: options.class,
+		REQ0Tariff_TravellerType: ['E'],
+		REQ0Tariff_TravellerReductionClass: [options.bahncard],
+		REQ0Tariff_TravellerAge: [options.age],
+		REQ0Tariff_Class: options.class,
 	}
 	debug('request', req)
 
