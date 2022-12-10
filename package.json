@@ -56,12 +56,14 @@
 		"hafas-client": "^5.0.0"
 	},
 	"devDependencies": {
+		"csv-parser": "^3.0.0",
 		"db-hafas": "^5.0.1",
 		"tape": "^5.0.0"
 	},
 	"scripts": {
 		"lint": "eslint .",
+		"build": "./build/index.sh",
 		"test": "env NODE_ENV=dev node test/index.js",
-		"prepublishOnly": "npm run lint && npm test"
+		"prepublishOnly": "npm run lint && npm run build && npm test"
 	}
 }

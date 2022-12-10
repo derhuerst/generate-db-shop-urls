@@ -75,6 +75,8 @@ This project is dual-licensed: **My contributions are licensed under the [*Prosp
 
 [Get in touch with me](https://jannisr.de/) to buy a commercial license or read more about [why I sell private licenses for my projects](https://gist.github.com/derhuerst/0ef31ee82b6300d2cafd03d10dd522f7).
 
+The [DB *Haltestellendaten* dataset](https://data.deutschebahn.com/dataset/data-haltestellen.html) used by this project is licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
 
 ## Contributing
 
