@@ -6,11 +6,18 @@ const {join} = require('path')
 const {readFileSync} = require('fs')
 const cheerio = require('cheerio')
 
+const {
+	parseIbnrFromBahnhofDePage,
+	fetchIbnrFromBahnhofDe,
+} = require('../lib/fetch-ibnr-from-bahnhof.de.js')
 const request = require('../lib/request')
 const parse = require('../lib/parse')
 const link = require('..')
 const when = require('./when')
 
+const bahnhofDe2545HannoverHbf = readFileSync(join(__dirname, 'bahnhof.de-2545-hannover-hbf.html'), {
+	encoding: 'utf8',
+})
 const düsseldorfHanauOutbound = require('./hafas-düsseldorf-hanau.json')
 const düsseldorfHanauHTML = readFileSync(join(__dirname, 'results-düsseldorf-hanau.html'), {encoding: 'utf8'})
 const düsseldorfHanauExpected = require('./expected-düsseldorf-hanau.json')
@@ -31,6 +38,18 @@ const isBookingPage = async (url) => {
 	// todo: find a more robust way, compare prices
 	return !!(nextButton || availContinueButton)
 }
+
+test('parseIbnrFromBahnhofDePage works', (t) => {
+	const hannoverHbfIbnr = parseIbnrFromBahnhofDePage(bahnhofDe2545HannoverHbf)
+	t.equal(hannoverHbfIbnr, '8000152')
+	t.end()
+})
+
+test('fetchIbnrFromBahnhofDe works', async (t) => {
+	const hannoverHbfIbnr = await fetchIbnrFromBahnhofDe('2545')
+	t.equal(hannoverHbfIbnr, '8000152')
+	t.end()
+})
 
 test('parsing works Düsseldorf Hbf -> Hanau Hbf', (t) => {
 	const res = parse(düsseldorfHanauOutbound, null, false)(düsseldorfHanauHTML)
