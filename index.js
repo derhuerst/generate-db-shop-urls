@@ -146,7 +146,12 @@ const generateDbShopLink = async (outbound, opt) => {
 		return compareJourney(outbound, options.returning, f.journey, false)
 	})
 	// todo: return `null` instead?
-	if (!result) throw new Error('no matching outbound journey found')
+	if (!result) {
+		const err = new Error('no matching outbound journey found')
+		err.model = outbound
+		err.candidates = results
+		throw err
+	}
 	debug('outbound next step', result.nextStep)
 
 	if (options.returning) {
@@ -159,7 +164,12 @@ const generateDbShopLink = async (outbound, opt) => {
 			return compareJourney(outbound, options.returning, f.journey, true)
 		})
 		// todo: return `null` instead?
-		if (!result) throw new Error('no matching returning journey found')
+		if (!result) {
+			const err = new Error('no matching returning journey found')
+			err.model = outbound
+			err.candidates = results
+			throw err
+		}
 		debug('returning next step', result.nextStep)
 	}
 
