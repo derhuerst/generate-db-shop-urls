@@ -1,0 +1,79 @@
+{
+	"type": "journey",
+	"id": "21",
+	"origin": {
+		"type": "station",
+		"id": "8000152",
+		"name": "Hannover Hbf"
+	},
+	"destination": {
+		"type": "station",
+		"id": "8000261",
+		"name": "München Hbf"
+	},
+	"legs": [
+		{
+			"origin": {
+				"type": "station",
+				"id": "8000152",
+				"name": "Hannover Hbf"
+			},
+			"departure": "2022-12-24T21:36:00.000Z",
+			"departurePlatform": "3",
+			"destination": {
+				"type": "station",
+				"id": "8000128",
+				"name": "Göttingen"
+			},
+			"arrival": "2022-12-24T22:49:00.000Z",
+			"arrivalPlatform": "6",
+			"line": {
+				"type": "line",
+				"id": "me-82837",
+				"name": "ME 82837",
+				"mode": null,
+				"product": "ME"
+			},
+			"product": "ME"
+		},
+		{
+			"origin": {
+				"type": "station",
+				"id": "8000128",
+				"name": "Göttingen"
+			},
+			"departure": "2022-12-25T00:13:00.000Z",
+			"departurePlatform": "6",
+			"destination": {
+				"type": "station",
+				"id": "8000261",
+				"name": "München Hbf"
+			},
+			"arrival": "2022-12-25T05:04:00.000Z",
+			"arrivalPlatform": "20",
+			"line": {
+				"type": "line",
+				"id": "ice-1689",
+				"name": "ICE 1689",
+				"mode": "train",
+				"product": "ICE"
+			},
+			"product": "ICE"
+		}
+	],
+	"price": {
+		"currency": "EUR",
+		"amount": 44.9,
+		"discount": true,
+		"name": "Super Sparpreis",
+		"description": "You can use all trains indicated on your ticket. You can use any local train (i.e. RE, RB, S). Passengers on train services with mandatory reservation must reserve a seat. A 3-D Secure Code may be required for credit card payments.<br/>Cancellation (exchange or refund) of your ticket is excluded.",
+		"anyTrain": false
+	},
+	"nightTrain": false,
+	"formattedPrice": {
+		"euros": "44",
+		"cents": "90"
+	},
+	"duration": 26880000,
+	"cheapest": false
+}

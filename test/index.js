@@ -14,6 +14,9 @@ const when = require('./when')
 const düsseldorfHanauOutbound = require('./hafas-düsseldorf-hanau.json')
 const düsseldorfHanauHTML = readFileSync(join(__dirname, 'results-düsseldorf-hanau.html'), {encoding: 'utf8'})
 const düsseldorfHanauExpected = require('./expected-düsseldorf-hanau.json')
+const hannoverMünchenOutbound = require('./hafas-hannover-münchen.json')
+const hannoverMünchenHTML = readFileSync(join(__dirname, 'results-hannover-münchen.html'), {encoding: 'utf8'})
+const hannoverMünchenExpected = require('./expected-hannover-münchen.json')
 
 const berlin = '8011160'
 const hamburg = '8002549'
@@ -35,6 +38,12 @@ const isBookingPage = async (url) => {
 test('parsing works Düsseldorf Hbf -> Hanau Hbf', (t) => {
 	const res = parse(düsseldorfHanauOutbound, null, false)(düsseldorfHanauHTML)
 	t.deepEqual(res, düsseldorfHanauExpected)
+	t.end()
+})
+
+test('parsing works Hannover Hbf -> Göttingen -> München Hbf', (t) => {
+	const res = parse(hannoverMünchenOutbound, null, false)(hannoverMünchenHTML)
+	t.deepEqual(res, hannoverMünchenExpected)
 	t.end()
 })
 

@@ -1,0 +1,225 @@
+[
+    {
+        "journey":
+        {
+            "type": "journey",
+            "id": "7c4e204780a615b22dfaeae8842ff626f3b0088e",
+            "legs":
+            [
+                {
+                    "public": true,
+                    "origin":
+                    {
+                        "type": "station",
+                        "id": "8000152",
+                        "name": "Hannover Hbf"
+                    },
+                    "departurePlatform": "3",
+                    "departure": null,
+                    "plannedDeparture": "2022-12-24T21:36:00.000Z",
+                    "departureDelay": null,
+                    "lines":
+                    [
+                        {
+                            "type": "line",
+                            "id": "82837",
+                            "name": "ME RE2",
+                            "fahrtNr": "82837"
+                        }
+                    ],
+                    "destination":
+                    {
+                        "type": "station",
+                        "id": "8000128",
+                        "name": "Göttingen"
+                    },
+                    "arrivalPlatform": "6",
+                    "arrival": null,
+                    "plannedArrival": "2022-12-24T22:49:00.000Z",
+                    "arrivalDelay": null
+                },
+                {
+                    "public": true,
+                    "origin":
+                    {
+                        "type": "station",
+                        "id": "8000128",
+                        "name": "Göttingen"
+                    },
+                    "departurePlatform": "6",
+                    "departure": null,
+                    "plannedDeparture": "2022-12-25T00:13:00.000Z",
+                    "departureDelay": null,
+                    "lines":
+                    [
+                        {
+                            "type": "line",
+                            "id": "ice-1689",
+                            "name": "ICE 1689",
+                            "fahrtNr": null
+                        }
+                    ],
+                    "destination":
+                    {
+                        "type": "station",
+                        "id": "8098263",
+                        "name": "München Hbf"
+                    },
+                    "arrivalPlatform": "20",
+                    "arrival": null,
+                    "plannedArrival": "2022-12-25T05:04:00.000Z",
+                    "arrivalDelay": null
+                }
+            ],
+            "price":
+            {
+                "amount": null,
+                "currency": null
+            },
+            "discount":
+            {
+                "amount": 44.9,
+                "currency": "EUR"
+            }
+        },
+        "nextStep": "https://reiseauskunft.bahn.de/bin/query.exe/dn?ld=4398&country=DEU&protocol=https%3A&seqnr=1&ident=ih.01924798.1670715863&rt=1&rememberSortType=minDeparture&sTID=C0-0.2%401830&oCID=C0-0&showAvail=yes&completeFulfillment=1&HWAI=CONNECTION%24C1-0!id%3DC1-0!HwaiConId%3DC1-0!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-1!id%3DC1-1!HwaiConId%3DC1-1!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-2!id%3DC1-2!HwaiConId%3DC1-2!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-3!id%3DC1-3!HwaiConId%3DC1-3!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-4!id%3DC1-4!HwaiConId%3DC1-4!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo"
+    },
+    {
+        "journey":
+        {
+            "type": "journey",
+            "id": "7233eefa208d4abb7da4358c7002ce23c8d9ed30",
+            "legs":
+            [
+                {
+                    "public": true,
+                    "origin":
+                    {
+                        "type": "station",
+                        "id": "8000152",
+                        "name": "Hannover Hbf"
+                    },
+                    "departurePlatform": "7",
+                    "departure": null,
+                    "plannedDeparture": "2022-12-24T23:03:00.000Z",
+                    "departureDelay": null,
+                    "lines":
+                    [
+                        {
+                            "type": "line",
+                            "id": "ice-1689",
+                            "name": "ICE 1689",
+                            "fahrtNr": null
+                        }
+                    ],
+                    "destination":
+                    {
+                        "type": "station",
+                        "id": "8098263",
+                        "name": "München Hbf"
+                    },
+                    "arrivalPlatform": "20",
+                    "arrival": null,
+                    "plannedArrival": "2022-12-25T05:04:00.000Z",
+                    "arrivalDelay": null
+                }
+            ],
+            "price":
+            {
+                "amount": null,
+                "currency": null
+            },
+            "discount":
+            {
+                "amount": 35.9,
+                "currency": "EUR"
+            }
+        },
+        "nextStep": "https://reiseauskunft.bahn.de/bin/query.exe/dn?ld=4398&country=DEU&protocol=https%3A&seqnr=1&ident=ih.01924798.1670715863&rt=1&rememberSortType=minDeparture&sTID=C0-1.2%401830&oCID=C0-1&showAvail=yes&completeFulfillment=1&HWAI=CONNECTION%24C1-0!id%3DC1-0!HwaiConId%3DC1-0!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-1!id%3DC1-1!HwaiConId%3DC1-1!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-2!id%3DC1-2!HwaiConId%3DC1-2!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-3!id%3DC1-3!HwaiConId%3DC1-3!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-4!id%3DC1-4!HwaiConId%3DC1-4!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo"
+    },
+    {
+        "journey":
+        {
+            "type": "journey",
+            "id": "e6ea6eb067b31ce47ed384f564cfe4d9d0783c55",
+            "legs":
+            [
+                {
+                    "public": true,
+                    "origin":
+                    {
+                        "type": "station",
+                        "id": "8000152",
+                        "name": "Hannover Hbf"
+                    },
+                    "departurePlatform": "10",
+                    "departure": null,
+                    "plannedDeparture": "2022-12-24T23:30:00.000Z",
+                    "departureDelay": null,
+                    "lines":
+                    [
+                        {
+                            "type": "line",
+                            "id": "ic-60471",
+                            "name": "IC 60471",
+                            "fahrtNr": null
+                        }
+                    ],
+                    "destination":
+                    {
+                        "type": "station",
+                        "id": "8000150",
+                        "name": "Hanau Hbf"
+                    },
+                    "arrivalPlatform": "6",
+                    "arrival": null,
+                    "plannedArrival": "2022-12-25T03:15:00.000Z",
+                    "arrivalDelay": null
+                },
+                {
+                    "public": true,
+                    "origin":
+                    {
+                        "type": "station",
+                        "id": "8000150",
+                        "name": "Hanau Hbf"
+                    },
+                    "departurePlatform": "103",
+                    "departure": null,
+                    "plannedDeparture": "2022-12-25T05:10:00.000Z",
+                    "departureDelay": null,
+                    "lines":
+                    [
+                        {
+                            "type": "line",
+                            "id": "ice-521",
+                            "name": "ICE 521",
+                            "fahrtNr": null
+                        }
+                    ],
+                    "destination":
+                    {
+                        "type": "station",
+                        "id": "8098263",
+                        "name": "München Hbf"
+                    },
+                    "arrivalPlatform": "23",
+                    "arrival": null,
+                    "plannedArrival": "2022-12-25T08:06:00.000Z",
+                    "arrivalDelay": null
+                }
+            ],
+            "price":
+            {
+                "amount": null,
+                "currency": null
+            },
+            "discount":
+            {
+                "amount": 43.9,
+                "currency": "EUR"
+            }
+        },
+        "nextStep": "https://reiseauskunft.bahn.de/bin/query.exe/dn?ld=4398&country=DEU&protocol=https%3A&seqnr=1&ident=ih.01924798.1670715863&rt=1&rememberSortType=minDeparture&sTID=C0-2.2%401830&oCID=C0-2&showAvail=yes&completeFulfillment=1&HWAI=CONNECTION%24C1-0!id%3DC1-0!HwaiConId%3DC1-0!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-1!id%3DC1-1!HwaiConId%3DC1-1!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-2!id%3DC1-2!HwaiConId%3DC1-2!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-3!id%3DC1-3!HwaiConId%3DC1-3!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo%3BCONNECTION%24C1-4!id%3DC1-4!HwaiConId%3DC1-4!HwaiDetailStatus%3Ddetails!HwaiMoreDetailStatus%3DstInfo"
+    }
+]
