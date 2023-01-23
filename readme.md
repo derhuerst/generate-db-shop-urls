@@ -1,6 +1,6 @@
 # generate-db-shop-urls
 
-**Magically generate Deutsche Bahn ticket URLs.** Given a [`journey` queried with `hafas-client@5`](https://github.com/public-transport/hafas-client/blob/5/journeys.md), it tries to generate a matching ticket link in the [Deutsche Bahn shop](https://www.bahn.de/). Caveats:
+**Magically generate Deutsche Bahn ticket URLs.** Given a [`journey` queried with `hafas-client@5`](https://github.com/public-transport/hafas-client/blob/5/docs/journeys.md), it tries to generate a matching ticket link in the [Deutsche Bahn shop](https://www.bahn.de/). Caveats:
 
 - Uses a lot of scraping, as there is no (publicly accessible) machine-readable interface to the ticket system. This makes `generate-db-shop-urls` brittle.
 - Because of how (bad) the shop works, the generated links will only be valid with a browser session that hasn't recently been used to search for a connection, or one without any cookies/session.
@@ -20,7 +20,7 @@ npm install generate-db-shop-urls
 
 ## Usage
 
-`generate-db-shop-urls` expects one (outbound) or two (outbound & returning) [`journey`s queried with `hafas-client@5`](https://github.com/public-transport/hafas-client/blob/5/journeys.md) as input.
+`generate-db-shop-urls` expects one (outbound) or two (outbound & returning) [`journey`s queried with `hafas-client@5`](https://github.com/public-transport/hafas-client/blob/5/docs/journeys.md) as input.
 
 ```js
 const createHafas = require('db-hafas')
